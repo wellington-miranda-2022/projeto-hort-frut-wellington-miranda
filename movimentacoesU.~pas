@@ -394,9 +394,9 @@ tbl_Movimentacoes.Filtered := true;
 end;
 if tipo =  ftInteger then
 begin
-tbl_Movimentacoes.Filtered := false;
-tbl_Movimentacoes.Filter := ''+UpperCase(nomecampo)+' = '+Quotedstr(editConsulta.Text);
-tbl_Movimentacoes.Filtered := true;
+	tbl_Movimentacoes.Filtered := false;
+	tbl_Movimentacoes.Filter := ''+UpperCase(nomecampo)+' = '+Quotedstr(editConsulta.Text);
+	tbl_Movimentacoes.Filtered := true;
 end;
 end;
 
