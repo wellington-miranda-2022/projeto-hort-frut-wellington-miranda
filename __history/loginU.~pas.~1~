@@ -81,58 +81,61 @@ uses principalU, pedidoU, novopedU, ajustesU;
 
 procedure TfrmLogin.editLoginEnter(Sender: TObject);
 begin
-        editLogin.Color := clSkyBlue;
+editLogin.Color := clSkyBlue;
 end;
 
 procedure TfrmLogin.editLoginExit(Sender: TObject);
 begin
-        editLogin.Color := clWhite;
+editLogin.Color := clWhite;
 end;
 
 procedure TfrmLogin.editSenhaEnter(Sender: TObject);
 begin
-        editSenha.Color := clSkyBlue;
+editSenha.Color := clSkyBlue;
 end;
 
 procedure TfrmLogin.editSenhaExit(Sender: TObject);
 begin
-        editSenha.Color := clWhite;
+editSenha.Color := clWhite;
 end;
 
 procedure TfrmLogin.btn1Click(Sender: TObject);
 begin
-        Application.Terminate;
+Application.Terminate;
 end;
 
 procedure TfrmLogin.btnCloseClick(Sender: TObject);
 begin
 Application.Terminate;
-        tbl_Usuario.Active := false;
-        tbl_Usuario.Close;
+tbl_Usuario.Active := false;
+tbl_Usuario.Close;
 end;
 
 procedure TfrmLogin.editTipoEnter(Sender: TObject);
 begin
-        editTipo.Color := clSkyBlue;
+editTipo.Color := clSkyBlue;
 end;
 
 procedure TfrmLogin.editTipoExit(Sender: TObject);
 begin
-        editTipo.Color := clWhite;
+editTipo.Color := clWhite;
 end;
 
 procedure TfrmLogin.btnLoginClick(Sender: TObject);
 var
 data, datafinal : String;
 begin
+
+
+
   tbl_Usuario.Active := true;
   tbl_Usuario.Filtered := true;
   tbl_Usuario.Filter := 'Nome_Usuario = '+Quotedstr(editLogin.Text+'*');
 
   if tbl_Usuario.FieldByName('Nome_Usuario').Value = null then
   begin
-        MessageDlg('Não há usúario cadastrados no sistema, entre em contato com o suporte!',MtError,[mbok],0);
-        exit;
+  MessageDlg('Não há usúario cadastrados no sistema, entre em contato com o suporte!',MtError,[mbok],0);
+  exit;
   end;
 
   data := DateToStr(now);
@@ -142,9 +145,9 @@ begin
 
   if StrToDate(data) >= StrToDate(datafinal) then
   begin
-          MessageDlg('Esse sistema é um sistema para teste free para 30 dias, por favor contate o suporte! ligue para Wellington Miranda (15)99687-9862.',MtInformation,[mbok],0);
-          Application.Terminate;
-          exit;
+  MessageDlg('Esse sistema é um sistema para teste free para 30 dias, por favor contate o suporte! ligue para Wellington Miranda (15)99687-9862.',MtInformation,[mbok],0);
+  Application.Terminate;
+  exit;
   end;
 
   nome := tbl_usuario.FieldByName('Nome_Usuario').AsString;
