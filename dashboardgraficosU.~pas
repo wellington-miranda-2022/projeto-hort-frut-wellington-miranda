@@ -1,0 +1,1450 @@
+unit dashboardgraficosU;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ExtCtrls, StdCtrls, Grids, DBGrids, Buttons, TeEngine, Series,
+  TeeProcs, Chart, DbChart, DB, DBTables, ComCtrls, Math, DateUtils, Mask,
+  DBCtrls;
+
+type
+  Tfrm_DashboardGraficos = class(TForm)
+    Panel3: TPanel;
+    GroupBox1: TGroupBox;
+    SpeedButton4: TSpeedButton;
+    Label4: TLabel;
+    ComboBox1: TComboBox;
+    ds_ContasReceber: TDataSource;
+    ds_ContasPagar: TDataSource;
+    tbl_ContasReceber: TTable;
+    tbl_ContasReceberCod_ContasReceber: TIntegerField;
+    tbl_ContasReceberCliente_ContasReceber: TStringField;
+    tbl_ContasReceberNum_DocContasReceber: TStringField;
+    tbl_ContasReceberQtd_ParcContasReceber: TIntegerField;
+    tbl_ContasReceberValor_ContasReceber: TCurrencyField;
+    tbl_ContasReceberData_ContasReceber: TDateField;
+    tbl_ContasReceberData_VencContasReceber: TDateField;
+    tbl_ContasReceberTipo_ReceitaContasReceber: TStringField;
+    tbl_ContasReceberQuitado_ContasReceber: TDateField;
+    tbl_ContasReceberFalta_ContasReceber: TCurrencyField;
+    tbl_ContasReceberRecebido_ContasReceber: TCurrencyField;
+    tbl_ContasReceberObs_ContasReceber: TStringField;
+    tbl_ContasPagar: TTable;
+    tbl_ContasPagarCod_ContasDetalhes: TIntegerField;
+    tbl_ContasPagarNum_ParcContasDetalhes: TIntegerField;
+    tbl_ContasPagarValor_ParcContasDetalhes: TCurrencyField;
+    tbl_ContasPagarValor_RestContasDetalhes: TCurrencyField;
+    tbl_ContasPagarData_VencContasDetalhes: TDateField;
+    tbl_ContasPagarData_PagContasDetalhes: TDateField;
+    tbl_ContasPagarStatus_ContasDetalhes: TStringField;
+    tbl_ContasPagarId_ContasPagar: TIntegerField;
+    tbl_ContasPagarNum_DocContasDetalhes: TStringField;
+    tbl_ContasPagarFornecedor_ContasDetalhes: TStringField;
+    PageControl1: TPageControl;
+    TabSheet1: TTabSheet;
+    SrContas: TChart;
+    Panel2: TPanel;
+    Series2: TPieSeries;
+    editPagar: TEdit;
+    editReceber: TEdit;
+    lblData: TLabel;
+    Label3: TLabel;
+    btn7dias: TSpeedButton;
+    btnAmanh: TSpeedButton;
+    btnHoje: TSpeedButton;
+    Label1: TLabel;
+    DBContasPagar: TDBGrid;
+    DBContasReceber: TDBGrid;
+    Label2: TLabel;
+    TabSheet2: TTabSheet;
+    Label5: TLabel;
+    tbl_Movimentacoes: TTable;
+    DataInicio: TDateTimePicker;
+    DataFinal: TDateTimePicker;
+    Label6: TLabel;
+    tbl_MovimentacoesCod_Movimentacao: TAutoIncField;
+    tbl_MovimentacoesId_Movimentacao: TIntegerField;
+    tbl_MovimentacoesData_Movimentacao: TDateField;
+    tbl_MovimentacoesHistorico_Movimentacao: TStringField;
+    tbl_MovimentacoesDebito_Movimentacao: TCurrencyField;
+    tbl_MovimentacoesCredito_Movimentacao: TCurrencyField;
+    tbl_MovimentacoesConciliado_Movimentacao: TStringField;
+    tbl_MovimentacoesData_FinalMovimentacao: TDateField;
+    tbl_MovimentacoesExtrato_Movimentacao: TGraphicField;
+    tbl_MovimentacoesDocumento_Movimentacao: TStringField;
+    tbl_MovimentacoesPlanoConta_Movimentacao: TStringField;
+    tbl_MovimentacoesFoto_Movimentacao: TStringField;
+    editDespesas: TEdit;
+    editReceitas: TEdit;
+    RadioGroup1: TRadioGroup;
+    Chart1: TChart;
+    Series1: TBarSeries;
+    ckResultado: TCheckBox;
+    SpeedButton1: TSpeedButton;
+    TabSheet3: TTabSheet;
+    ChartClientes: TChart;
+    Series4: TBarSeries;
+    Chart2: TChart;
+    Series3: TPieSeries;
+    tbl_Clientes: TTable;
+    tbl_ClientesCod_Cliente: TIntegerField;
+    tbl_ClientesNome_Cliente: TStringField;
+    tbl_ClientesEndereco_Cliente: TStringField;
+    tbl_ClientesBairro_Cliente: TStringField;
+    tbl_ClientesCidade_Cliente: TStringField;
+    tbl_ClientesUF_Cliente: TStringField;
+    tbl_ClientesTelefone_Cliente: TStringField;
+    tbl_ClientesCelular_Cliente: TStringField;
+    tbl_ClientesEmpresa_Cliente: TStringField;
+    tbl_ClientesRG_Cliente: TStringField;
+    tbl_ClientesCPF_Cliente: TStringField;
+    tbl_ClientesData_Cad: TDateField;
+    tbl_ClientesPrivilegio_Cliente: TStringField;
+    tbl_Vendas: TTable;
+    tbl_VendasCodVendTotal: TIntegerField;
+    tbl_VendasCliente_VendTotal: TStringField;
+    tbl_VendasUsuario_VendTotal: TStringField;
+    tbl_VendasTotal_VendTotal: TCurrencyField;
+    tbl_VendasData_VendTotal: TDateField;
+    tbl_VendasDataVenc_VendTotal: TDateField;
+    tbl_VendasPrazo_VendTotal: TIntegerField;
+    tbl_VendasFormPag_VendTotal: TStringField;
+    tbl_VendasSituacao_VendTotal: TStringField;
+    tbl_VendasFrete_VendTotal: TCurrencyField;
+    GroupBox2: TGroupBox;
+    Label7: TLabel;
+    SpeedButton2: TSpeedButton;
+    cbClientes: TComboBox;
+    SpeedButton5: TSpeedButton;
+    SpeedButton3: TSpeedButton;
+    listClientes: TListBox;
+    TabSheet4: TTabSheet;
+    tbl_Dezembro: TTable;
+    tbl_Novembro: TTable;
+    tbl_Outubro: TTable;
+    tbl_Setembro: TTable;
+    tbl_Agosto: TTable;
+    tbl_Julho: TTable;
+    tbl_Junho: TTable;
+    tbl_Maio: TTable;
+    tbl_Abril: TTable;
+    tbl_Marco: TTable;
+    tbl_Fevereiro: TTable;
+    tbl_Janeiro: TTable;
+    tbl_JaneiroTotal_VendTotal: TCurrencyField;
+    tbl_JaneiroCodVendTotal: TIntegerField;
+    tbl_JaneiroCliente_VendTotal: TStringField;
+    tbl_JaneiroUsuario_VendTotal: TStringField;
+    tbl_JaneiroData_VendTotal: TDateField;
+    tbl_JaneiroDataVenc_VendTotal: TDateField;
+    tbl_JaneiroPrazo_VendTotal: TIntegerField;
+    tbl_JaneiroFormPag_VendTotal: TStringField;
+    tbl_JaneiroSituacao_VendTotal: TStringField;
+    tbl_JaneiroFrete_VendTotal: TCurrencyField;
+    ds_Movimentacoes: TDataSource;
+    tbl_ContaCorrente: TTable;
+    Chart3: TChart;
+    BarSeries1: TBarSeries;
+    ListClienteMes: TListBox;
+    Panel1: TPanel;
+    editConsulta: TEdit;
+    TabSheet5: TTabSheet;
+    Label8: TLabel;
+    lblDataHoje: TLabel;
+    Label10: TLabel;
+    DBMovimentacoes: TDBGrid;
+    DBChart1: TDBChart;
+    Series6: TFastLineSeries;
+    Series5: TFastLineSeries;
+    TabSheet6: TTabSheet;
+    RadioButton1: TRadioButton;
+    RadioButton2: TRadioButton;
+    Label9: TLabel;
+    DBChart2: TDBChart;
+    Series7: TPieSeries;
+    qrMovimentacoes: TQuery;
+    procedure SpeedButton4Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure DBContasPagarDrawColumnCell(Sender: TObject;
+      const Rect: TRect; DataCol: Integer; Column: TColumn;
+      State: TGridDrawState);
+    procedure DBContasReceberDrawColumnCell(Sender: TObject;
+      const Rect: TRect; DataCol: Integer; Column: TColumn;
+      State: TGridDrawState);
+    procedure SeriesPRAfterDraw(Sender: TObject);
+    procedure btnHojeClick(Sender: TObject);
+    procedure btnAmanhClick(Sender: TObject);
+    procedure btn7diasClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure Button1Click(Sender: TObject);
+    procedure RadioGroup1Click(Sender: TObject);
+    procedure ckResultadoClick(Sender: TObject);
+    procedure SpeedButton1Click(Sender: TObject);
+    procedure SpeedButton3Click(Sender: TObject);
+    procedure SpeedButton5Click(Sender: TObject);
+    procedure SpeedButton2Click(Sender: TObject);
+    procedure Query1FilterRecord(DataSet: TDataSet; var Accept: Boolean);
+    procedure ListClienteMesClick(Sender: TObject);
+    procedure editConsultaClick(Sender: TObject);
+    procedure editConsultaExit(Sender: TObject);
+    procedure editConsultaChange(Sender: TObject);
+  private
+    procedure CustomGrid;
+    procedure Receber;
+    procedure Pagar;
+    procedure DataHoje;
+    procedure DataAmanha;
+    procedure SeteDias;
+    procedure AbrirTabela;
+    procedure FecharTabela;
+    procedure Despesas;
+    procedure Receitas;
+    procedure Resultado;
+    procedure AtualizarData;
+    procedure FiltrarDespRec;
+    procedure CarregarClientes;
+    procedure AdicionarLista;
+    procedure GraficoCliente;
+    procedure FiltrarCliente;
+    procedure VerificarLista;
+    procedure GraficoPeriodoMes;
+    procedure Janeiro;
+    procedure Fevereiro;
+    procedure Marco;
+    procedure Abril;
+    procedure Maio;
+    procedure Junho;
+    procedure Julho;
+    procedure Agosto;
+    procedure Setembro;
+    procedure Outubro;
+    procedure Novembro;
+    procedure Dezembro;
+    procedure CarregarListaClientes;
+    procedure MovimentacaoMes;
+    procedure PlanodeContas;
+  public
+    totalpagar, totalreceber, despesa, receita, cliente : String;
+    item : Integer;
+  end;
+type
+ TDBGridPadrao = class(TDBGrid);
+var
+  frm_DashboardGraficos: Tfrm_DashboardGraficos;
+  Ascendente : Boolean;
+  implementation
+
+uses clientesU;
+
+{$R *.dfm}
+
+procedure Tfrm_DashboardGraficos.SpeedButton4Click(Sender: TObject);
+begin
+Self.Close;
+end;
+
+
+
+
+procedure Tfrm_DashboardGraficos.FormCreate(Sender: TObject);
+begin
+AtualizarData;
+AbrirTabela;
+CarregarClientes;
+CarregarListaClientes;
+FiltrarDespRec;
+DataHoje;
+CustomGrid;
+Receber;
+Pagar;
+Despesas;
+Receitas;
+Resultado;
+MovimentacaoMes;
+PlanodeContas;
+qrMovimentacoes.Active := true;
+
+end;
+
+procedure Tfrm_DashboardGraficos.DBContasPagarDrawColumnCell(
+  Sender: TObject; const Rect: TRect; DataCol: Integer; Column: TColumn;
+  State: TGridDrawState);
+begin
+if Odd(DBContasPagar.DataSource.Dataset.RecNo)then
+begin
+DBContasPagar.Canvas.Brush.Color := $00E9E9E9;
+end else
+DBContasPagar.Canvas.Brush.Color := clWhite;
+
+if (gdSelected in State) then
+begin
+DBContasPagar.Canvas.Brush.Color := clHighlight;
+DBContasPagar.Canvas.Font.Color := clWhite;
+DBContasPagar.Canvas.Font.Style := [fsBold];
+end;
+DBContasPagar.Canvas.FillRect(Rect);
+DBContasPagar.DefaultDrawColumnCell( Rect, DataCol, Column, State);
+
+DBContasPagar.Canvas.TextRect( Rect, Rect.Left + 8, Rect.Top + 8, Column.Field.DisplayText );
+
+end;
+
+procedure Tfrm_DashboardGraficos.CustomGrid;
+begin
+TDBGridPadrao(DBContasPagar).DefaultRowHeight := 25;
+TDBGridPadrao(DBContasReceber).DefaultRowHeight := 25;
+//TDBGridPadrao(DBContasPagar).ClientHeight := (20 * TDBGridPadrao(DBContasPagar).RowCount )+ 20;
+end;
+
+procedure Tfrm_DashboardGraficos.DBContasReceberDrawColumnCell(
+  Sender: TObject; const Rect: TRect; DataCol: Integer; Column: TColumn;
+  State: TGridDrawState);
+begin
+if Odd(DBContasReceber.DataSource.Dataset.RecNo)then
+begin
+DBContasReceber.Canvas.Brush.Color := $00E9E9E9;
+end else
+DBContasReceber.Canvas.Brush.Color := clWhite;
+
+if (gdSelected in State) then
+begin
+DBContasReceber.Canvas.Brush.Color := clHighlight;
+DBContasReceber.Canvas.Font.Color := clWhite;
+DBContasReceber.Canvas.Font.Style := [fsBold];
+end;
+DBContasReceber.Canvas.FillRect(Rect);
+DBContasReceber.DefaultDrawColumnCell( Rect, DataCol, Column, State);
+
+DBContasReceber.Canvas.TextRect( Rect, Rect.Left + 8, Rect.Top + 8, Column.Field.DisplayText );
+
+end;
+
+procedure Tfrm_DashboardGraficos.Receber;
+var
+soma : Real;
+begin
+soma := 0;
+
+with tbl_ContasReceber do
+begin
+  First;
+  while not tbl_ContasReceber.Eof do
+  begin
+  soma:= (soma + tbl_ContasReceber.FieldByName('Falta_ContasReceber').AsFloat);
+  Next;
+  end;
+  totalreceber := FloatToStr(soma);
+  end;
+if soma = 0 then
+begin
+Panel2.Visible := true;
+end else
+editReceber.Text := totalreceber;
+Series2.Clear;
+Series2.AddY(StrToCurrDef(editReceber.Text,0),'Receber',$0048D50D);
+end;
+
+procedure Tfrm_DashboardGraficos.SeriesPRAfterDraw(Sender: TObject);
+begin
+//SeriesPR.AddSeries(StrToCurrDef(editReceber.Text,0),'Receber',clGreen);
+end;
+
+procedure Tfrm_DashboardGraficos.Pagar;
+var
+soma : Real;
+begin
+soma := 0;
+
+With tbl_ContasPagar do
+begin
+First;
+while not tbl_ContasPagar.Eof do
+begin
+soma := (soma + tbl_ContasPagar.FieldByName('Valor_RestContasDetalhes').AsFloat);
+Next;
+end;
+end;
+totalpagar := FloatToStr(soma);
+editPagar.Text := totalpagar;
+Series2.AddY(StrToCurrDef(editPagar.Text,0),'Pagar',$002939D0);
+end;
+
+procedure Tfrm_DashboardGraficos.DataHoje;
+var
+nada : String;
+begin
+nada := '';
+
+With tbl_ContasReceber do
+begin
+Filtered := false;
+Filter := 'Falta_ContasReceber >0';
+Filtered := true;
+end;
+
+With tbl_ContasPagar do
+begin
+Filtered := false;
+Filter := 'Valor_RestContasDetalhes >0';
+Filtered := true;
+end;
+
+end;
+
+procedure Tfrm_DashboardGraficos.btnHojeClick(Sender: TObject);
+begin
+Panel2.Visible := false;
+DataHoje;
+Receber;
+Pagar;
+end;
+
+procedure Tfrm_DashboardGraficos.btnAmanhClick(Sender: TObject);
+begin
+Panel2.Visible := false;
+DataAmanha;
+Receber;
+Pagar;
+end;
+
+procedure Tfrm_DashboardGraficos.DataAmanha;
+var
+amanha : TDateTime;
+begin
+amanha := now + 1;
+
+With tbl_ContasReceber do
+begin
+Filtered := false;
+Filter := 'Data_VencContasReceber = '+Quotedstr(DateToStr(amanha))+' and Falta_ContasReceber >0';
+Filtered := true;
+end;
+
+With tbl_ContasPagar do
+begin
+Filtered := false;
+Filter := 'Data_VencContasDetalhes = '+Quotedstr(DateToStr(amanha))+' and Valor_RestContasDetalhes >0';
+Filtered := true;
+end;
+
+end;
+
+procedure Tfrm_DashboardGraficos.SeteDias;
+var
+setedias : TDateTime;
+begin
+setedias := now + 7;
+With tbl_ContasReceber do
+begin
+Filtered := false;
+Filter := 'Data_VencContasReceber >= '+Quotedstr(DateToStr(now))+' and Data_VencContasReceber <= '+Quotedstr(DateToStr(setedias))+' and Falta_ContasReceber >0';
+Filtered := true;
+end;
+
+With tbl_ContasPagar do
+begin
+Filtered := false;
+Filter := 'Data_VencContasDetalhes >= '+Quotedstr(DateToStr(now))+' and Data_VencContasDetalhes <= '+Quotedstr(DateToStr(setedias))+' and Valor_RestContasDetalhes >0'; ;
+Filtered := true;
+end;
+
+
+end;
+
+procedure Tfrm_DashboardGraficos.btn7diasClick(Sender: TObject);
+begin
+Panel2.Visible := false;
+SeteDias;
+Receber;
+Pagar;
+end;
+
+procedure Tfrm_DashboardGraficos.AbrirTabela;
+begin
+tbl_ContasReceber.Active := true;
+tbl_ContasPagar.Active := true;
+tbl_Movimentacoes.Active := true;
+tbl_Clientes.Active := true;
+tbl_Vendas.Active := true;
+
+tbl_Janeiro.Active := true;
+tbl_Fevereiro.Active := true;
+tbl_Marco.Active := true;
+tbl_Abril.Active := true;
+tbl_Maio.Active := true;
+tbl_Junho.Active := true;
+tbl_Julho.Active := true;
+tbl_Agosto.Active := true;
+tbl_Setembro.Active := true;
+tbl_Outubro.Active := true;
+tbl_Novembro.Active := true;
+tbl_Dezembro.Active := true;
+
+end;
+
+procedure Tfrm_DashboardGraficos.FecharTabela;
+begin
+tbl_ContasReceber.Active := false;
+tbl_ContasPagar.Active := false;
+tbl_Movimentacoes.Active := false;
+tbl_Clientes.Active := false;
+tbl_Vendas.Active := false;
+
+tbl_Janeiro.Active := false;
+tbl_Fevereiro.Active := false;
+tbl_Marco.Active := false;
+tbl_Abril.Active := false;
+tbl_Maio.Active := false;
+tbl_Junho.Active := false;
+tbl_Julho.Active := false;
+tbl_Agosto.Active := false;
+tbl_Setembro.Active := false;
+tbl_Outubro.Active := false;
+tbl_Novembro.Active := false;
+tbl_Dezembro.Active := false;
+end;
+
+procedure Tfrm_DashboardGraficos.FormClose(Sender: TObject;
+  var Action: TCloseAction);
+begin
+FecharTabela;
+end;
+
+procedure Tfrm_DashboardGraficos.Despesas;
+var
+soma : Real;
+begin
+soma := 0;
+
+with tbl_Movimentacoes do
+begin
+  First;
+  while not tbl_Movimentacoes.Eof do
+  begin
+  soma:= (soma + tbl_Movimentacoes.FieldByName('Debito_Movimentacao').AsFloat);
+  Next;
+  end;
+  despesa := FloatToStr(soma);
+  end;
+if soma = 0 then
+begin
+//Panel2.Visible := true;
+end else
+editDespesas.Text := despesa;
+//Series1.Clear;
+Series1.Add(StrToCurrDef(editDespesas.Text,0),'Despesas',clRed);
+Series3.Add(StrToCurrDef(editDespesas.Text,0),'Despesas',$002939D0);
+end;
+
+procedure Tfrm_DashboardGraficos.Receitas;
+var
+soma : Real;
+begin
+soma := 0;
+
+with tbl_Movimentacoes do
+begin
+  First;
+  while not tbl_Movimentacoes.Eof do
+  begin
+  soma:= (soma + tbl_Movimentacoes.FieldByName('Credito_Movimentacao').AsFloat);
+  Next;
+  end;
+  receita := FloatToStr(soma);
+  end;
+if soma = 0 then
+begin
+//Panel2.Visible := true;
+end else
+editReceitas.Text := receita;
+//Series1.Clear;
+Series1.Add(StrToCurrDef(editReceitas.Text,0),'Receitas',clGreen);
+Series3.Add(StrToCurrDef(editReceitas.Text,0),'Receitas',clGreen);
+end;
+procedure Tfrm_DashboardGraficos.Button1Click(Sender: TObject);
+var i:integer;
+begin
+  for i:=1 to 10000 do
+   Chart1.Series[1].AddXY(i,power(i,2));
+end;
+
+procedure Tfrm_DashboardGraficos.RadioGroup1Click(Sender: TObject);
+begin
+if RadioGroup1.ItemIndex = 0 then
+begin
+Chart2.Visible := false;
+end else
+if RadioGroup1.ItemIndex = 1 then
+begin
+Chart2.Visible := true;
+end;
+end;
+
+procedure Tfrm_DashboardGraficos.Resultado;
+var
+result : Real;
+resultado : String;
+begin
+result := StrToFloat(receita)-StrToFloat(despesa);
+resultado := FloatToStr(result);
+Series1.Add(StrToCurrDef(resultado,0),'Resultado',clBlue);
+Series3.Add(StrToCurrDef(resultado,0),'Resultado',clBlue);
+end;
+
+procedure Tfrm_DashboardGraficos.ckResultadoClick(Sender: TObject);
+begin
+if ckResultado.Checked = true then
+begin
+Series1.Clear;
+Series3.Clear;
+Despesas;
+Receitas;
+Resultado;
+end else
+if ckResultado.Checked = false then
+begin
+Series1.Clear;
+Series3.Clear;
+Despesas;
+Receitas;
+end;
+end;
+
+procedure Tfrm_DashboardGraficos.AtualizarData;
+begin
+lblData.Caption := DateToStr(now);
+lblDataHoje.Caption := DateToStr(now);
+DataInicio.Date := now - 31;
+DataFinal.Date := now;
+end;
+
+procedure Tfrm_DashboardGraficos.FiltrarDespRec;
+begin
+with tbl_Movimentacoes do
+begin
+Filtered := false;
+Filter := 'Data_Movimentacao >= '+Quotedstr(DateToStr(DataInicio.Date))+' and Data_Movimentacao <= '+Quotedstr(DateToStr(DataFinal.Date));
+Filtered := true;
+if tbl_Movimentacoes.RecordCount = 0 then
+begin
+ShowMessage('Não a valores referentes a esse periodo!');
+AtualizarData;
+FiltrarDespRec;
+end;
+end;
+end;
+
+procedure Tfrm_DashboardGraficos.SpeedButton1Click(Sender: TObject);
+begin
+FiltrarDespRec;
+Series1.Clear;
+Series3.Clear;
+if ckResultado.Checked = true then
+begin
+Despesas;
+Receitas;
+Resultado;
+end else
+if ckResultado.Checked = false then
+begin
+Despesas;
+Receitas;
+end;
+end;
+
+procedure Tfrm_DashboardGraficos.CarregarClientes;
+begin
+with tbl_Clientes do
+begin
+Active := false;
+Active := true;
+
+if not IsEmpty then
+begin
+while not Eof do
+begin
+cbClientes.Items.Add(tbl_Clientes.FieldByName('Nome_Cliente').Value);
+Next;
+end;
+end;
+end;
+
+end;
+
+procedure Tfrm_DashboardGraficos.SpeedButton3Click(Sender: TObject);
+begin
+if Trim(cbClientes.Text) = '' then
+begin
+MessageDlg('Escolha um cliente para adicionar a lista!',MtWarning,[mbok],0);
+exit;
+end;
+VerificarLista;
+AdicionarLista;
+FiltrarCliente;
+
+end;
+
+procedure Tfrm_DashboardGraficos.AdicionarLista;
+begin
+if item = -1 then
+begin
+ListClientes.Items.Add(cbClientes.Text);
+GraficoCliente;
+end else
+if item <> item then
+begin
+ListClientes.Items.Add(cbClientes.Text);
+GraficoCliente;
+end else
+MessageDlg('Esse nome já foi inserido na lista!',MtWarning,[mbok],0);
+end;
+
+procedure Tfrm_DashboardGraficos.GraficoCliente;
+var
+soma : Real;
+begin
+soma := 0;
+
+with tbl_Vendas do
+begin
+  First;
+  while not tbl_Vendas.Eof do
+  begin
+  soma:= (soma + tbl_Vendas.FieldByName('Total_VendTotal').AsFloat);
+  Next;
+  end;
+  end;
+  cliente := FloatToStr(soma);
+  //Series1.Clear;
+Series4.Add(StrToCurrDef(cliente,0),cbClientes.Text);
+end;
+
+procedure Tfrm_DashboardGraficos.FiltrarCliente;
+begin
+with tbl_Vendas do
+begin
+Filtered := false;
+Filter := 'Cliente_VendTotal = '+Quotedstr(cbClientes.Text);
+Filtered := true;
+end;
+end;
+
+procedure Tfrm_DashboardGraficos.VerificarLista;
+begin
+item := listClientes.Perform(LB_SELECTSTRING,0,LongInt(pChar(cbClientes.Text)));
+item := listClientes.Perform(LB_SELECTSTRING,0,LongInt(pChar(cbClientes.Text)));
+end;
+
+procedure Tfrm_DashboardGraficos.SpeedButton5Click(Sender: TObject);
+begin
+frm_DashboardGraficos.Close;
+frm_DashboardGraficos.Hide;
+frm_DashboardGraficos := Tfrm_DashboardGraficos.Create(Self);
+frm_DashboardGraficos.ShowModal;
+try
+finally
+frm_DashboardGraficos.Free;
+frm_DashboardGraficos := nil;
+end;
+end;
+
+procedure Tfrm_DashboardGraficos.SpeedButton2Click(Sender: TObject);
+begin
+frm_Clientes := Tfrm_Clientes.Create(Self);
+frm_Clientes.ShowModal;
+try
+finally
+frm_Clientes.Free;
+frm_Clientes := nil;
+end;
+end;
+
+
+procedure Tfrm_DashboardGraficos.Query1FilterRecord(DataSet: TDataSet;
+  var Accept: Boolean);
+begin
+//Accept := MonthOf(tbl_Janeiro.FieldByName('Data_VendTotal').AsDateTime) = StrToInt(Mes.Text);
+end;
+
+procedure Tfrm_DashboardGraficos.ListClienteMesClick(Sender: TObject);
+begin
+GraficoPeriodoMes;
+end;
+
+procedure Tfrm_DashboardGraficos.GraficoPeriodoMes;
+begin
+    BarSeries1.Clear;
+     Janeiro;
+     Fevereiro;
+     Marco;
+     Abril;
+     Maio;
+     Junho;
+     Julho;
+     Agosto;
+     Setembro;
+     Outubro;
+     Novembro;
+     Dezembro;
+end;
+
+procedure Tfrm_DashboardGraficos.Janeiro;
+var
+dia,mes,ano, janeiro : String;
+d, m, a : Integer;
+nome, dataini, datafin : String;
+data,data2 : TDateTime;
+soma : Real;
+begin
+
+dia := formatdatetime('dd',strtodatetime(DateToStr(now)));
+mes := formatdatetime('mm',strtodatetime(DateToStr(now)));
+ano := formatdatetime('yy',strtodatetime(DateToStr(now)));
+
+d := StrToInt(dia) - StrToInt(dia)+1;
+m := StrToInt(mes) - StrToInt(mes)+1;
+a := StrToInt(ano);
+
+dia := '0'+IntToStr(d);
+mes := '0'+IntToStr(m);
+ano := '20'+IntToStr(a);
+
+
+dataini := (dia+'/'+mes+'/'+ano);
+data := StrToDate(dataini);
+data2 := data + 30;
+
+nome := listClienteMes.Items[(listClienteMes.itemIndex)];
+tbl_Janeiro.First;
+with tbl_Janeiro do
+begin
+Filtered := false;
+Filter := 'Data_VendTotal >= '+Quotedstr(DateToStr(data))+' and Data_VendTotal <= '+Quotedstr(DateToStr(data2))+' and Cliente_VendTotal = '+Quotedstr(nome);
+Filtered := true;
+end;
+soma := 0;
+with tbl_Janeiro do
+begin
+First;
+while not tbl_Janeiro.Eof do
+begin
+soma := (soma+tbl_Janeiro.FieldByName('Total_VendTotal').AsFloat);
+Next;
+end;
+end;
+
+BarSeries1.Add(soma,'Janeiro')
+
+end;
+
+procedure Tfrm_DashboardGraficos.Fevereiro;
+var
+dia,mes,ano, janeiro : String;
+d, m, a : Integer;
+nome, dataini, datafin : String;
+data,data2 : TDateTime;
+soma : Real;
+begin
+
+dia := formatdatetime('dd',strtodatetime(DateToStr(now)));
+mes := formatdatetime('mm',strtodatetime(DateToStr(now)));
+ano := formatdatetime('yy',strtodatetime(DateToStr(now)));
+
+d := StrToInt(dia) - StrToInt(dia)+1;
+m := StrToInt(mes) - StrToInt(mes)+1;
+a := StrToInt(ano);
+
+dia := '0'+IntToStr(d);
+mes := '0'+IntToStr(m);
+ano := '20'+IntToStr(a);
+
+
+dataini := (dia+'/'+mes+'/'+ano);
+data := (StrToDate(dataini) + IncMonth(1))-1;
+data2 := data + 27;
+
+nome := listClienteMes.Items[(listClienteMes.itemIndex)];
+tbl_Fevereiro.First;
+with tbl_Fevereiro do
+begin
+Filtered := false;
+Filter := 'Data_VendTotal >= '+Quotedstr(DateToStr(data))+' and Data_VendTotal <= '+Quotedstr(DateToStr(data2))+' and Cliente_VendTotal = '+Quotedstr(nome);
+Filtered := true;
+end;
+soma := 0;
+with tbl_Fevereiro do
+begin
+First;
+while not tbl_Fevereiro.Eof do
+begin
+soma := (soma+tbl_Fevereiro.FieldByName('Total_VendTotal').AsFloat);
+Next;
+end;
+end;
+
+BarSeries1.Add(soma,'Fevereiro');
+
+end;
+
+procedure Tfrm_DashboardGraficos.Marco;
+var
+dia,mes,ano, janeiro : String;
+d, m, a : Integer;
+nome, dataini, datafin : String;
+data,data2 : TDateTime;
+soma : Real;
+begin
+
+dia := formatdatetime('dd',strtodatetime(DateToStr(now)));
+mes := formatdatetime('mm',strtodatetime(DateToStr(now)));
+ano := formatdatetime('yy',strtodatetime(DateToStr(now)));
+
+d := StrToInt(dia) - StrToInt(dia)+1;
+m := StrToInt(mes) - StrToInt(mes)+1;
+a := StrToInt(ano);
+
+dia := '0'+IntToStr(d);
+mes := '0'+IntToStr(m);
+ano := '20'+IntToStr(a);
+
+
+dataini := (dia+'/'+mes+'/'+ano);
+data := (StrToDate(dataini) + IncMonth(2))-1;
+data2 := (data + IncMonth(1))-4;
+data := data2;
+data2 := data + IncMonth(1)-2;
+
+
+
+nome := listClienteMes.Items[(listClienteMes.itemIndex)];
+tbl_Marco.First;
+with tbl_Marco do
+begin
+Filtered := false;
+Filter := 'Data_VendTotal >= '+Quotedstr(DateToStr(data))+' and Data_VendTotal <= '+Quotedstr(DateToStr(data2))+' and Cliente_VendTotal = '+Quotedstr(nome);
+Filtered := true;
+end;
+soma := 0;
+with tbl_Marco do
+begin
+First;
+while not tbl_Marco.Eof do
+begin
+soma := (soma+tbl_Marco.FieldByName('Total_VendTotal').AsFloat);
+Next;
+end;
+end;
+
+BarSeries1.Add(soma,'Março');
+
+end;
+
+procedure Tfrm_DashboardGraficos.Abril;
+var
+dia,mes,ano, janeiro : String;
+d, m, a : Integer;
+nome, dataini, datafin : String;
+data,data2 : TDateTime;
+soma : Real;
+begin
+
+dia := formatdatetime('dd',strtodatetime(DateToStr(now)));
+mes := formatdatetime('mm',strtodatetime(DateToStr(now)));
+ano := formatdatetime('yy',strtodatetime(DateToStr(now)));
+
+d := StrToInt(dia) - StrToInt(dia)+1;
+m := StrToInt(mes) - StrToInt(mes)+1;
+a := StrToInt(ano);
+
+dia := '0'+IntToStr(d);
+mes := '0'+IntToStr(m);
+ano := '20'+IntToStr(a);
+
+
+dataini := (dia+'/'+mes+'/'+ano);
+data := (StrToDate(dataini))+ 91;
+data2 := (data)+29;
+
+
+
+
+
+
+nome := listClienteMes.Items[(listClienteMes.itemIndex)];
+tbl_Abril.First;
+with tbl_Abril do
+begin
+Filtered := false;
+Filter := 'Data_VendTotal >= '+Quotedstr(DateToStr(data))+' and Data_VendTotal <= '+Quotedstr(DateToStr(data2))+' and Cliente_VendTotal = '+Quotedstr(nome);
+Filtered := true;
+end;
+soma := 0;
+with tbl_Abril do
+begin
+First;
+while not tbl_Abril.Eof do
+begin
+soma := (soma+tbl_Abril.FieldByName('Total_VendTotal').AsFloat);
+Next;
+end;
+end;
+
+BarSeries1.Add(soma,'Abril');
+
+end;
+
+procedure Tfrm_DashboardGraficos.Maio;
+var
+dia,mes,ano, janeiro : String;
+d, m, a : Integer;
+nome, dataini, datafin : String;
+data,data2 : TDateTime;
+soma : Real;
+begin
+
+dia := formatdatetime('dd',strtodatetime(DateToStr(now)));
+mes := formatdatetime('mm',strtodatetime(DateToStr(now)));
+ano := formatdatetime('yy',strtodatetime(DateToStr(now)));
+
+d := StrToInt(dia) - StrToInt(dia)+1;
+m := StrToInt(mes) - StrToInt(mes)+1;
+a := StrToInt(ano);
+
+dia := '0'+IntToStr(d);
+mes := '0'+IntToStr(m);
+ano := '20'+IntToStr(a);
+
+
+dataini := (dia+'/'+mes+'/'+ano);
+data := (StrToDate(dataini))+ 121;
+data2 := (data)+30;
+
+nome := listClienteMes.Items[(listClienteMes.itemIndex)];
+tbl_Maio.First;
+with tbl_Maio do
+begin
+Filtered := false;
+Filter := 'Data_VendTotal >= '+Quotedstr(DateToStr(data))+' and Data_VendTotal <= '+Quotedstr(DateToStr(data2))+' and Cliente_VendTotal = '+Quotedstr(nome);
+Filtered := true;
+end;
+soma := 0;
+with tbl_Maio do
+begin
+First;
+while not tbl_Maio.Eof do
+begin
+soma := (soma+tbl_Maio.FieldByName('Total_VendTotal').AsFloat);
+Next;
+end;
+end;
+
+BarSeries1.Add(soma,'Maio');
+
+end;
+
+procedure Tfrm_DashboardGraficos.Junho;
+var
+dia,mes,ano, janeiro : String;
+d, m, a : Integer;
+nome, dataini, datafin : String;
+data,data2 : TDateTime;
+soma : Real;
+begin
+
+dia := formatdatetime('dd',strtodatetime(DateToStr(now)));
+mes := formatdatetime('mm',strtodatetime(DateToStr(now)));
+ano := formatdatetime('yy',strtodatetime(DateToStr(now)));
+
+d := StrToInt(dia) - StrToInt(dia)+1;
+m := StrToInt(mes) - StrToInt(mes)+1;
+a := StrToInt(ano);
+
+dia := '0'+IntToStr(d);
+mes := '0'+IntToStr(m);
+ano := '20'+IntToStr(a);
+
+
+dataini := (dia+'/'+mes+'/'+ano);
+data := (StrToDate(dataini))+ 152;
+data2 := (data)+29;
+
+nome := listClienteMes.Items[(listClienteMes.itemIndex)];
+tbl_Junho.First;
+with tbl_Junho do
+begin
+Filtered := false;
+Filter := 'Data_VendTotal >= '+Quotedstr(DateToStr(data))+' and Data_VendTotal <= '+Quotedstr(DateToStr(data2))+' and Cliente_VendTotal = '+Quotedstr(nome);
+Filtered := true;
+end;
+soma := 0;
+with tbl_Junho do
+begin
+First;
+while not tbl_Junho.Eof do
+begin
+soma := (soma+tbl_Junho.FieldByName('Total_VendTotal').AsFloat);
+Next;
+end;
+end;
+
+BarSeries1.Add(soma,'Junho');
+
+end;
+
+procedure Tfrm_DashboardGraficos.Julho;
+var
+dia,mes,ano, janeiro : String;
+d, m, a : Integer;
+nome, dataini, datafin : String;
+data,data2 : TDateTime;
+soma : Real;
+begin
+
+dia := formatdatetime('dd',strtodatetime(DateToStr(now)));
+mes := formatdatetime('mm',strtodatetime(DateToStr(now)));
+ano := formatdatetime('yy',strtodatetime(DateToStr(now)));
+
+d := StrToInt(dia) - StrToInt(dia)+1;
+m := StrToInt(mes) - StrToInt(mes)+1;
+a := StrToInt(ano);
+
+dia := '0'+IntToStr(d);
+mes := '0'+IntToStr(m);
+ano := '20'+IntToStr(a);
+
+
+dataini := (dia+'/'+mes+'/'+ano);
+data := (StrToDate(dataini))+ 182;
+data2 := (data)+30;
+
+nome := listClienteMes.Items[(listClienteMes.itemIndex)];
+tbl_Julho.First;
+with tbl_Julho do
+begin
+Filtered := false;
+Filter := 'Data_VendTotal >= '+Quotedstr(DateToStr(data))+' and Data_VendTotal <= '+Quotedstr(DateToStr(data2))+' and Cliente_VendTotal = '+Quotedstr(nome);
+Filtered := true;
+end;
+soma := 0;
+with tbl_Julho do
+begin
+First;
+while not tbl_Julho.Eof do
+begin
+soma := (soma+tbl_Julho.FieldByName('Total_VendTotal').AsFloat);
+Next;
+end;
+end;
+
+BarSeries1.Add(soma,'Julho');
+
+end;
+
+procedure Tfrm_DashboardGraficos.Agosto;
+var
+dia,mes,ano, janeiro : String;
+d, m, a : Integer;
+nome, dataini, datafin : String;
+data,data2 : TDateTime;
+soma : Real;
+begin
+
+dia := formatdatetime('dd',strtodatetime(DateToStr(now)));
+mes := formatdatetime('mm',strtodatetime(DateToStr(now)));
+ano := formatdatetime('yy',strtodatetime(DateToStr(now)));
+
+d := StrToInt(dia) - StrToInt(dia)+1;
+m := StrToInt(mes) - StrToInt(mes)+1;
+a := StrToInt(ano);
+
+dia := '0'+IntToStr(d);
+mes := '0'+IntToStr(m);
+ano := '20'+IntToStr(a);
+
+
+dataini := (dia+'/'+mes+'/'+ano);
+data := (StrToDate(dataini))+ 213;
+data2 := (data)+30;
+
+nome := listClienteMes.Items[(listClienteMes.itemIndex)];
+tbl_Agosto.First;
+with tbl_Agosto do
+begin
+Filtered := false;
+Filter := 'Data_VendTotal >= '+Quotedstr(DateToStr(data))+' and Data_VendTotal <= '+Quotedstr(DateToStr(data2))+' and Cliente_VendTotal = '+Quotedstr(nome);
+Filtered := true;
+end;
+soma := 0;
+with tbl_Agosto do
+begin
+First;
+while not tbl_Agosto.Eof do
+begin
+soma := (soma+tbl_Agosto.FieldByName('Total_VendTotal').AsFloat);
+Next;
+end;
+end;
+
+BarSeries1.Add(soma,'Agosto');
+
+end;
+
+procedure Tfrm_DashboardGraficos.Setembro;
+var
+dia,mes,ano, janeiro : String;
+d, m, a : Integer;
+nome, dataini, datafin : String;
+data,data2 : TDateTime;
+soma : Real;
+begin
+
+dia := formatdatetime('dd',strtodatetime(DateToStr(now)));
+mes := formatdatetime('mm',strtodatetime(DateToStr(now)));
+ano := formatdatetime('yy',strtodatetime(DateToStr(now)));
+
+d := StrToInt(dia) - StrToInt(dia)+1;
+m := StrToInt(mes) - StrToInt(mes)+1;
+a := StrToInt(ano);
+
+dia := '0'+IntToStr(d);
+mes := '0'+IntToStr(m);
+ano := '20'+IntToStr(a);
+
+
+dataini := (dia+'/'+mes+'/'+ano);
+data := (StrToDate(dataini))+ 244;
+data2 := (data)+29;
+
+nome := listClienteMes.Items[(listClienteMes.itemIndex)];
+tbl_Julho.First;
+with tbl_Setembro do
+begin
+Filtered := false;
+Filter := 'Data_VendTotal >= '+Quotedstr(DateToStr(data))+' and Data_VendTotal <= '+Quotedstr(DateToStr(data2))+' and Cliente_VendTotal = '+Quotedstr(nome);
+Filtered := true;
+end;
+soma := 0;
+with tbl_Setembro do
+begin
+First;
+while not tbl_Setembro.Eof do
+begin
+soma := (soma+tbl_Setembro.FieldByName('Total_VendTotal').AsFloat);
+Next;
+end;
+end;
+
+BarSeries1.Add(soma,'Setembro');
+
+end;
+
+
+procedure Tfrm_DashboardGraficos.Outubro;
+var
+dia,mes,ano, janeiro : String;
+d, m, a : Integer;
+nome, dataini, datafin : String;
+data,data2 : TDateTime;
+soma : Real;
+begin
+
+dia := formatdatetime('dd',strtodatetime(DateToStr(now)));
+mes := formatdatetime('mm',strtodatetime(DateToStr(now)));
+ano := formatdatetime('yy',strtodatetime(DateToStr(now)));
+
+d := StrToInt(dia) - StrToInt(dia)+1;
+m := StrToInt(mes) - StrToInt(mes)+1;
+a := StrToInt(ano);
+
+dia := '0'+IntToStr(d);
+mes := '0'+IntToStr(m);
+ano := '20'+IntToStr(a);
+
+
+dataini := (dia+'/'+mes+'/'+ano);
+data := (StrToDate(dataini))+ 274;
+data2 := (data)+30;
+
+nome := listClienteMes.Items[(listClienteMes.itemIndex)];
+tbl_Outubro.First;
+with tbl_Outubro do
+begin
+Filtered := false;
+Filter := 'Data_VendTotal >= '+Quotedstr(DateToStr(data))+' and Data_VendTotal <= '+Quotedstr(DateToStr(data2))+' and Cliente_VendTotal = '+Quotedstr(nome);
+Filtered := true;
+end;
+soma := 0;
+with tbl_Outubro do
+begin
+First;
+while not tbl_Outubro.Eof do
+begin
+soma := (soma+tbl_Outubro.FieldByName('Total_VendTotal').AsFloat);
+Next;
+end;
+end;
+
+BarSeries1.Add(soma,'Outubro');
+
+end;
+
+procedure Tfrm_DashboardGraficos.Novembro;
+var
+dia,mes,ano, janeiro : String;
+d, m, a : Integer;
+nome, dataini, datafin : String;
+data,data2 : TDateTime;
+soma : Real;
+begin
+
+dia := formatdatetime('dd',strtodatetime(DateToStr(now)));
+mes := formatdatetime('mm',strtodatetime(DateToStr(now)));
+ano := formatdatetime('yy',strtodatetime(DateToStr(now)));
+
+d := StrToInt(dia) - StrToInt(dia)+1;
+m := StrToInt(mes) - StrToInt(mes)+1;
+a := StrToInt(ano);
+
+dia := '0'+IntToStr(d);
+mes := '0'+IntToStr(m);
+ano := '20'+IntToStr(a);
+
+
+dataini := (dia+'/'+mes+'/'+ano);
+data := (StrToDate(dataini))+ 305;
+data2 := (data)+29;
+
+nome := listClienteMes.Items[(listClienteMes.itemIndex)];
+tbl_Novembro.First;
+with tbl_Novembro do
+begin
+Filtered := false;
+Filter := 'Data_VendTotal >= '+Quotedstr(DateToStr(data))+' and Data_VendTotal <= '+Quotedstr(DateToStr(data2))+' and Cliente_VendTotal = '+Quotedstr(nome);
+Filtered := true;
+end;
+soma := 0;
+with tbl_Novembro do
+begin
+First;
+while not tbl_Novembro.Eof do
+begin
+soma := (soma+tbl_Novembro.FieldByName('Total_VendTotal').AsFloat);
+Next;
+end;
+end;
+
+BarSeries1.Add(soma,'Novemb');
+
+end;
+
+
+procedure Tfrm_DashboardGraficos.Dezembro;
+var
+dia,mes,ano, janeiro : String;
+d, m, a : Integer;
+nome, dataini, datafin : String;
+data,data2 : TDateTime;
+soma : Real;
+begin
+
+dia := formatdatetime('dd',strtodatetime(DateToStr(now)));
+mes := formatdatetime('mm',strtodatetime(DateToStr(now)));
+ano := formatdatetime('yy',strtodatetime(DateToStr(now)));
+
+d := StrToInt(dia) - StrToInt(dia)+1;
+m := StrToInt(mes) - StrToInt(mes)+1;
+a := StrToInt(ano);
+
+dia := '0'+IntToStr(d);
+mes := '0'+IntToStr(m);
+ano := '20'+IntToStr(a);
+
+
+dataini := (dia+'/'+mes+'/'+ano);
+data := (StrToDate(dataini))+ 335;
+data2 := (data)+30;
+
+nome := listClienteMes.Items[(listClienteMes.itemIndex)];
+tbl_Dezembro.First;
+with tbl_Dezembro do
+begin
+Filtered := false;
+Filter := 'Data_VendTotal >= '+Quotedstr(DateToStr(data))+' and Data_VendTotal <= '+Quotedstr(DateToStr(data2))+' and Cliente_VendTotal = '+Quotedstr(nome);
+Filtered := true;
+end;
+soma := 0;
+with tbl_Dezembro do
+begin
+First;
+while not tbl_Dezembro.Eof do
+begin
+soma := (soma+tbl_Dezembro.FieldByName('Total_VendTotal').AsFloat);
+Next;
+end;
+end;
+
+BarSeries1.Add(soma,'Dezembro');
+
+end;
+
+procedure Tfrm_DashboardGraficos.CarregarListaClientes;
+begin
+with tbl_Clientes do
+begin
+  Active := false;
+  Active := true;
+
+  if not IsEmpty then
+  begin
+    While not Eof do
+    begin
+    listClienteMes.Items.Add(tbl_Clientes.FieldByName('Nome_Cliente').AsString);
+    Next;
+    end;
+  end;
+end;
+end;
+
+procedure Tfrm_DashboardGraficos.editConsultaClick(Sender: TObject);
+begin
+editConsulta.Clear;
+end;
+
+procedure Tfrm_DashboardGraficos.editConsultaExit(Sender: TObject);
+begin
+if (Length(editConsulta.Text)=0)then
+editConsulta.Text := 'Digite o nome do cliente';
+end;
+
+procedure Tfrm_DashboardGraficos.editConsultaChange(Sender: TObject);
+begin
+if Length(editConsulta.Text)>0 then
+ListClienteMes.Perform(LB_SELECTSTRING,0,LongInt(pChar(editConsulta.Text)));
+end;
+
+procedure Tfrm_DashboardGraficos.MovimentacaoMes;
+var
+mes, ano, dia, data : String;
+begin
+dia := '01';
+mes := formatdatetime('mm',strtodatetime(DateToStr(now)));
+ano := '20'+formatdatetime('yy',strtodatetime(DateToStr(now)));
+data := dia+'/'+mes+'/'+ano;
+
+ShowMessage(data);
+
+with tbl_Movimentacoes do
+begin
+Filtered := false;
+Filter := 'Data_Movimentacao >= '+Quotedstr(data);
+Filtered := true;
+end;
+end;
+
+procedure Tfrm_DashboardGraficos.PlanodeContas;
+begin
+
+end;
+
+end.

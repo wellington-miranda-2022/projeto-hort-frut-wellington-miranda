@@ -1,0 +1,80 @@
+with tbl_Plano do
+begin
+First;
+while not tbl_Plano.Eof do
+begin
+
+debito := (debito + tbl_Plano.FieldByName('Valor_Planos').AsFloat);
+
+Next;
+
+end;
+end;
+
+
+
+if tbl_Plano.RecordCount >7 then
+begin
+debito := debito / tbl_Plano.RecordCount;
+end;
+
+if tbl_Plano.RecordCount >7 then
+begin
+with tbl_Plano do
+begin
+Filtered := false;
+Filter := 'Data_Planos >= '+Quotedstr(DateToStr(dtInicio.Date))+' and Data_Planos <= '+Quotedstr(DateToStr(dtFinal.Date))+' and Valor_Planos >= '+QuotedStr(FloatToStr(debito))+' and Tipo_Planos = '+Quotedstr(tipo);
+Filtered := true;
+end;
+end;
+
+outros := debito;
+
+tbl_Plano.First;
+for i := 1 to tbl_Plano.RecordCount do
+begin
+debito := tbl_Plano.FieldByName('Valor_Planos').AsFloat;
+plano := tbl_Plano.FieldByName('Descricao_Planos').AsString;
+PieSeries1.Add(debito,plano);
+tbl_Plano.Next;
+end;
+
+tbl_Plano.Filtered := false;
+
+if tbl_Plano.RecordCount >7 then
+begin
+
+with tbl_Plano do
+begin
+Filtered := false;
+Filter := 'Data_Planos >= '+Quotedstr(DateToStr(dtInicio.Date))+' and Data_Planos <= '+Quotedstr(DateToStr(dtFinal.Date))+' and Valor_Planos < '+QuotedStr(FloatToStr(outros))+' and Tipo_Planos = '+Quotedstr(tipo);
+Filtered := true;
+end;
+
+outros := 0;
+
+with tbl_Plano do
+begin
+First;
+while not tbl_Plano.Eof do
+begin
+
+outros := (outros + tbl_Plano.FieldByName('Valor_Planos').AsFloat);
+
+Next;
+
+end;
+
+PieSeries1.Add(outros,'Outros');
+First;
+
+end;
+end;
+
+if (debito = 0) and (outros = 0) then
+begin
+Chart6.Visible := false;
+end;
+
+debito :=0;
+outros :=0;

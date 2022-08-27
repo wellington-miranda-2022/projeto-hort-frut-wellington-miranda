@@ -1,0 +1,7 @@
+    SNTPClient := TIdSNTP.Create(nil);
+  try
+    SNTPClient.Host := 'pool.ntp.org';
+    SNTPClient.SyncTime;
+  finally
+    SNTPClient.Free;
+  end;

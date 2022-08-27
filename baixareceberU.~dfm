@@ -1,0 +1,1377 @@
+object frm_BaixaReceber: Tfrm_BaixaReceber
+  Left = 412
+  Top = 88
+  BorderStyle = bsDialog
+  Caption = 'Dar baixa nos recebimentos'
+  ClientHeight = 525
+  ClientWidth = 826
+  Color = clBtnFace
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = 'Open Sans'
+  Font.Style = []
+  KeyPreview = True
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  PixelsPerInch = 96
+  TextHeight = 18
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 826
+    Height = 50
+    Align = alTop
+    Color = clHighlight
+    ParentBackground = False
+    TabOrder = 0
+    object Bevel1: TBevel
+      Left = 744
+      Top = 12
+      Width = 51
+      Height = 29
+      Align = alCustom
+      Shape = bsLeftLine
+    end
+    object btnSair: TBitBtn
+      Left = 753
+      Top = 6
+      Width = 65
+      Height = 39
+      Caption = '&Sair'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Trebuchet MS'
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 0
+      OnClick = btnSairClick
+      Glyph.Data = {
+        0A070000424D0A07000000000000360000002800000019000000170000000100
+        180000000000D4060000C40E0000C40E00000000000000000000FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFF00FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF00FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFF021559051B69041E64041E643A69AD3666A6356CA9336EAC36
+        6FAD2A64AC092F7D00146B00157002166ED0D4F0FFFFFFFFFFFFFFFFFF00FFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFE7F0FE021D6E131E62C8C9C7B9B2B932
+        69AC386DAC376CAB366CA9356BA8346AA73369A63369A62D66A32E69A1001F6A
+        FFFFFEFFFFFFFFFFFF00FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF99A1BF03
+        1E6FCCCEC8C7C7C7B6B6B65D8AC7386DAC386DAC376CAB366BAA356BA8346AA7
+        3369A63369A63369A63268A5FEFFFAFFFFFFFFFFFF00FFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFF9BA3C1021D6ECFD0CEC7C7C7B6B6B6618AC83770AE3A6FAE
+        386DAC376CAB366BAA356BA8346AA73369A63369A63369A6FFFFFCFFFFFFFFFF
+        FF00FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF959EBF001F72CBD0CEC7C7C7
+        B6B6B65E8BC83871AF3871AF3A6FAE386DAC376CAB366CA9356BA8346AA73369
+        A63369A6FEFFFBFFFFFFFFFFFF00FFFFFFFFFFFFFFFFFFFFFFFFFFFFF9FEFFF8
+        9CA1C2002174CCD1CFC7C7C7B6B6B6608DCA3972B03871AF3871AF3770AE386D
+        AC376CAB366CA9356BA8346AA7346AA7FFFFFCFFFFFFFFFFFF00F8FEFFF8FEFF
+        F8FEFFF8FEFFFFFCFBAA8432A9823304257BD5CFC8C7C7C7B6B6B66390CD3B74
+        B23A73B13A73B13972B03871AF3A6FAE386DAC376CAB366BAA366CA9FFFFFCFF
+        FFFFFFFFFF00AD893BAD893BAD893BAD893BAD8838AF8937AE8836B28944D6D3
+        CFC7C7C7B6B6B66390CD3B74B23A73B13A73B13972B03871AF3A6FAE386DAC37
+        6CAB366BAA366CA9FFFFFCFFFFFFFFFFFF00B8903EB8903EB8903EB8903EB890
+        3EB8903EB8903EB8903EB8903EB58C43BABBB9628FCC3D76B43C75B33C75B33B
+        74B23A73B13972B03871AF3770AE386DAC386DACFFFFFBFFFFFFFFFFFF00C098
+        46C09846C09846C09846C09846C09846C09846C09846C09846C29A42B2904462
+        8FCC3E77B53E77B43B75B63C75B33B74B23A73B13972B03871AF3770AE3A6FAE
+        FFFFFBFFFFFFFFFFFF00C49C4AC49C4AC49C4AC49C4AC49C4AC49C4AC49C4AC4
+        9C4AC49C4AE2D591C4BBB2628FCC3E77B50010613D72B13C75B33B74B23A73B1
+        3972B03871AF3770AE3A6FAEFFFFFBFFFFFFFFFFFF00D9AD54D9AD54D9AD54D9
+        AD54D4B168CFA453D5AC5DFFEFB8D8CFBBC7C7C7B6B6B66491CE417AB83D78BD
+        3972B03E77B53D76B43C75B33B74B23A73B13972B03871AFFFFEFDFFFFFFFFFF
+        FF00FFFFFFFFFFFFFFFFFFFFFFFFFEFFFDD1A657C49C54043990D3D1D0C7C7C7
+        B6B6B66592CF427BB9417AB8417AB84079B73E77B53D76B43C75B33B74B23A73
+        B13972B0FFFFFBFFFFFFFFFFFF00FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF5E0C0
+        9AA7CD083D94D3D1D0C7C7C7B6B6B66693D0417CBA427BB9417AB8417AB84079
+        B73E77B53D76B43C75B33B74B23A73B1FFFEF9FFFFFFFFFFFF00FFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFF9BA8CE0B409AD3D1D0C7C7C7B6B6B66491CE427D
+        BB417CBA427BB9427BB9417AB84079B73E77B53D76B43C75B33B74B2FFFFFBFF
+        FFFFFFFFFF00FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9CA9CF0B459ED1CF
+        CEC7C7C7B6B6B66693D0437EBC427DBB417CBA437CBA427BB9417AB84079B73E
+        77B53D76B43C75B3FFFFFBFFFFFFFFFFFF00FFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFF9AACD10C48A2D3D1D0C7C7C7B6B6B66A97D4447FBD437EBC427DBB42
+        7DBB437CBA427BB9417AB84079B73E77B53D76B4FFFFFCFFFFFFFFFFFF00FFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9CAED30D4BA5D2D2CCC7C7C7B6B6B669
+        96D34580BE447FBD437EBC427DBB427DBB437CBA427BB9417AB84079B73E77B5
+        FFFFFCFFFFFFFFFFFF00FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF9AB0D90E
+        4DA9C6C5CEC7C7C7B6B6B66A97D44782C04580BE447FBD447FBD437EBC427DBB
+        437CBA427BB9417AB83D77B9FFFFFCFFFFFFFFFFFF00FFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFF99B1DB0249AB094DAC072F6A0A306A6F95C54883C14782C0
+        447FBD4780B7407DBF4C7BBF457BB77DA5D5ACD2FC04469FFFFDFAFFFFFFFFFF
+        FF00FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFB0C4DA91254B30B56BA
+        175DB8215EAE4885C54885C51761B92460AC2E64B13169B6346CBB346DBC2F6A
+        C06287BBF9FDFFFFFFFFFFFFFF00}
+    end
+    object btnGravar: TBitBtn
+      Left = 8
+      Top = 7
+      Width = 92
+      Height = 34
+      Caption = '&Gravar'
+      TabOrder = 1
+      OnClick = btnGravarClick
+      Glyph.Data = {
+        82060000424D8206000000000000420000002800000014000000140000000100
+        20000300000040060000983A0000983A000000000000000000000000FF0000FF
+        0000FF00000000000000030000000200000A0200002803010031000000340000
+        00340000003400000034000000340000003407020534090A073604280051062F
+        007803220072040C034D0B04072E0000000F0000000080320100582000128A3E
+        087F8D4410C7725644D378716ED77F7774D7857C7AD78A817ED78C837FD78379
+        76D7657059D81C6F17DA087800E6117800F51A6A00EE275C0ADF505025C02B18
+        0F670000000F672D0015A04D0A8FBD691EF7C27327FF9D856EFFA7917BFFB58C
+        63FFB78F67FFC6B8AAFFF9F8FAFFD3E1D3FF41A944FF079E0DFF23AD2EFF0FA1
+        15FF069000FF1A7F00FF3C7210FF515125C10700042EB95B087DBF691CF8C372
+        26FFC07127FF9B836DFFAD7F53FFC67323FFC57424FFBDA185FFECEDEFFF86C9
+        8AFF0FA51CFF50BE5EFFD5ECDBFF95DCA3FF12A71DFF019500FF1C7F01FF285C
+        0ADF040C034DC4650CA1C06C20FFC06D23FFBD6D24FFA48D77FFB2855AFFC370
+        23FFC37225FFB79A80FFCCD6CFFF55B95FFF49B855FFD1E1D2FFD8E9DAFFEFF7
+        F1FF99DFA7FF12A71EFF089100FF1D6B00EE03240072C5660CA0BE681EFFBD69
+        20FFBB6922FFAF9681FFB88A61FFC06D21FFC06F24FFAF9278FFB6C3B9FF54BC
+        63FF59BE68FF92CC98FF39BC51FF7DD28DFFEFF8F1FF97DDA5FF14A41BFF1579
+        00F606310079C5650BA0BB651CFFBA661EFFB86520FFB69D88FFBFB2A6FFB89E
+        87FFAD947DFF9E958EFFA7AFA9FF69BF78FF3FC864FF27BF4FFF25C04EFF21BA
+        43FF7BD089FFEDF3EFFF83D28FFF117E07E703290052C4640AA0B9621AFFB862
+        1CFFB7621DFFB07546FFB48762FFB28560FFAD815AFFA77A53FFA97B54FF85A0
+        5AFF5DD17DFF3DCF6EFF2DC75DFF25BE4CFF1EB53BFF68C776FF5ABE64FF2873
+        17D90B0A0435C36309A0B75E17FFB55E1AFFB65F1AFFB75F19FFB76019FFB962
+        1BFFBB651CFFBD671EFFBF691FFFB97A32FF7BAE5BFF5CD27EFF42D071FF2CC3
+        56FF1DB73EFF12AB27FF409C29FF795C28D50D000033C26208A0B55B15FFB35A
+        18FFB35B18FFB45C17FFB55D18FFB75F1AFFB8621BFFBA641CFFBC661EFFBF69
+        20FFBA7A31FF8F9E4DFF6EB660FF56B757FF53AC48FF769D3FFFBC8F3FFF9248
+        16D402000033C16007A0B25713FFB05615FFB15B1BFFB1662DFFB3682FFFB46A
+        31FFB56C32FFB66E33FFB77034FFB97235FFBB7436FFBE7A3DFFB78547FFB38C
+        4DFFBD8741FFCC8134FFCE7F2EFF8F4612D403000033C15F07A0AF5311FFAE51
+        11FFAF6734FFC7B9AFFFD2C8C1FFD2C9C1FFD3C9C2FFD2C9C1FFD1C7C0FFCFC5
+        BEFFCDC3BBFFC9C0B8FFC7BDB5FFBFB3AAFFBC8550FFC97928FFCB7D2CFF8F46
+        12D403000033C05E06A0AD500FFFAB4D0EFFAF6838FFD8D4D1FFEAEBEBFFE5E6
+        E6FFDEDFDFFFDEDFDFFFDDDEDEFFDCDCDCFFD9DADAFFD9D9DAFFDADBDBFFCDCC
+        CCFFBB8857FFC77727FFCA7C2BFF8F4512D403000033BF5C05A0AB4C0DFFA84A
+        0CFFAE6637FFDDD8D4FFEFEFEFFFE3E3E3FFD3D3D3FFD4D4D4FFD3D3D3FFD2D2
+        D2FFD1D1D1FFD5D5D5FFDCDDDDFFCFCECDFFBB8857FFC67626FFC97A2AFF8F45
+        11D403000033BE5B04A0A9490BFFA6460AFFAD6537FFE1DCD9FFF4F4F4FFEEEE
+        EEFFE4E4E4FFE4E4E4FFE2E2E2FFE0E0E0FFDDDDDDFFDDDDDDFFDFDFDFFFD2D0
+        D0FFBB8857FFC57426FFC8792AFF8E4411D404000033BD5A03A0A64508FFA342
+        07FFAC6336FFE5DFDCFFF9F9F9FFEAEAEAFFD4D4D4FFD4D4D4FFD3D3D3FFD3D3
+        D3FFD1D1D1FFD7D7D7FFE1E1E1FFD3D2D1FFBB8857FFC57425FFC87829FF8E43
+        11D404000033BD5902A0A44206FFA13E05FFAC6236FFE7E2DFFFFCFCFCFFF7F7
+        F7FFEEEEEEFFEEEEEEFFEBEBEBFFE7E7E7FFE3E3E3FFE1E1E1FFE2E2E2FFD4D3
+        D2FFBB8858FFBC6D23FFC17428FF904511D504000033BC58019EA13E04FF9F3B
+        03FFAB6035FFE8E3E0FFFDFDFDFFECECECFFD4D4D4FFD4D4D4FFD3D3D3FFD3D3
+        D3FFD1D1D1FFD7D7D7FFE2E2E2FFD4D3D2FFBB8857FF9B5A1CFFAB6623FF964A
+        11CF0500002CC15E0065AB4702F0A13D02FFAD6233FFE4DEDBFFF7F6F6FFF5F4
+        F4FFEFEEEEFFEEEDECFFEAEAE9FFE6E6E5FFE2E1E0FFDFDEDEFFDEDEDDFFD1CF
+        CEFFBB8655FFBA6A1FFFBA691EFA92450A8D0000000DD26E000BC35E0060BB56
+        0096BE722F9BD1C5BBA3D8D1CBA4D9D3CCA4D9D2CBA4D6CFC8A4D1CAC4A4CDC6
+        BFA4C8C1BBA4C3BCB5A4BEB7B1A4B7AFA8A4B87B449CBF5E0B98B15409737933
+        0019FF6F0200}
+    end
+    object btnDeletar: TBitBtn
+      Left = 105
+      Top = 7
+      Width = 90
+      Height = 32
+      Caption = '&Deletar'
+      Enabled = False
+      TabOrder = 2
+      Visible = False
+      OnClick = btnDeletarClick
+      Glyph.Data = {
+        36030000424D3603000000000000360000002800000010000000100000000100
+        18000000000000030000C40E0000C40E00000000000000000000162AC70419C2
+        0418BF0416BD0414BA0413B70412B30410B0040FAD040DAA040BA6040AA30409
+        A10408A004069D1E1F901B38DF001FDA001ED80422D91938DF021CD20019CC00
+        17C90015C50012C11B32CE1123C4000BB3000AAF0006A704069C1D3EE90024E5
+        0125E64C6AEBADBBE93C5BE9001EDA001CD40019D02540DCAFBFF68EA1EF1024
+        C8000DB7000AAF03069E2144F00027EE4363EEC8CDE2E7E5E0C3CBEA3A5AEB00
+        1EDC1F3FE3AEBEF6FCFBF9F7F9FC8CA0F10F24C8000AB20307A02349F83E5DEF
+        C4CADFE1E1DEE3E3E3EBEAE7C6CFEF4D6DF2A6B7F6FBFAF9FCFCFCFFFFFEF8FA
+        FF8CA0F10F21C20308A22850FC6C81E8DEDDDBE0E0E0E4E4E4E9E9E9EFEFEDE5
+        E9F3F5F5F7FBFBFBFEFEFEFFFFFFFFFFFFB8C8FC1F35CF0308A52C5AFF0C3CFA
+        8294E8E1E1E0E6E6E5EAEAEAEEEEEEF4F4F3F8F8F8FCFCFCFFFFFFFFFFFFBCCB
+        FC2E4AE00012C0030BA93264FF033EFF1041FA8697EBE4E4E6EBEBEAEFEFEFF4
+        F4F4F8F8F8FDFDFDFEFEFFB8C6FC2948E60019D00014C4030DAC386DFF0848FF
+        0644FF1C48F6C0C6E8EDEDEAEFEFEFF4F4F4F8F8F8FEFEFDEEF2FF4A6AF4001D
+        DB001CD40017C8030FB03F76FF0B4FFF1148F58093E6E2E3E5EAEAEAEFEFEFF4
+        F4F4F8F8F8FDFDFDFFFFFFC0CDFD2B4CEC001DD80018CB0310B3447FFF134DF1
+        7E8EDEE0DFE0E5E5E5E9E9E9EEEEEEF4F4F2F7F7F7FBFBFBFEFEFEFFFFFFC0CD
+        FD2A4BE90019CF0312B64679F3697BD4DCDBDAE0E0DFE3E3E3E8E8E8EDEDECD8
+        DBF0F2F3F5FAFAF9FDFDFDFFFFFFFFFFFFB5C5FD1636DE0313B94E88F94567D9
+        C4C4D6E0E0DEE2E2E2E9E9E6AAB4EA3154F495A5F4F7F7F6FAFAFAFEFEFDF1F4
+        FF758FF80927DA0315BD5899FF1666F84869D9C6C7D8E6E5E0A8AFE12550F104
+        42FE1544FA99A8F3F8F8F6F0F2F9708AF9062AE7001DD60317C05EA0FF1C76FF
+        1766F7496AD99198D52652EA0A4DFE0948FF033EFF123FF992A1F36D85F6052B
+        EF0023E4001ED90217C290C2FF4B95FF448DFF3C7BF73967EB3270FD2E6BFF29
+        61FF2358FF1C4DFF2149FA1B41F6143AEF1235E8122FDD1529C8}
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 501
+    Width = 826
+    Height = 24
+    Align = alBottom
+    Color = clHighlight
+    ParentBackground = False
+    TabOrder = 1
+  end
+  object PageControl1: TPageControl
+    Left = 0
+    Top = 50
+    Width = 826
+    Height = 451
+    ActivePage = TabSheet1
+    Align = alClient
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Open Sans'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 2
+    OnChange = PageControl1Change
+    object TabSheet1: TTabSheet
+      Caption = 'Baixa do T'#237'tulo'
+      Font.Charset = ANSI_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -13
+      Font.Name = 'Open Sans Semibold'
+      Font.Style = [fsBold]
+      ParentFont = False
+      object Label1: TLabel
+        Left = 432
+        Top = 77
+        Width = 123
+        Height = 18
+        Caption = 'Tipo de Pagamento:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Open Sans Semibold'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Label2: TLabel
+        Left = 433
+        Top = 42
+        Width = 99
+        Height = 18
+        Caption = 'Conta Corrente:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Open Sans Semibold'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object SpeedButton1: TSpeedButton
+        Left = 764
+        Top = 39
+        Width = 25
+        Height = 24
+        Glyph.Data = {
+          82060000424D8206000000000000420000002800000014000000140000000100
+          20000300000040060000983A0000983A000000000000000000000000FF0000FF
+          0000FF0000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000030000000200000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          00000000000000000000595449005D5748123E3D3B6213131353080808300000
+          0009000000000000000000000000000000000000000000000000000000000000
+          000000000000000000000000000000000000000000000009370000000002354C
+          9C63828795EC807F7EE64D4D4DB7070707342323230000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          000000054E00000000030730C0542163F1DF6FA6E1FFC7CCCDFF828180E91515
+          1551000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000E5500000000040832C1582264F3E14AA2
+          FFFF62C5FEFF83B8E4FF8E9299F2363635650000000300000000000000000000
+          0000000000000000000000000000000000000000000000000000000249000000
+          000A072FB65D2366F3E24BA3FFFF62C6FFFF52AFFFFF3077F4EF4A60A18A5B55
+          461FFFFFFF000000000000000000000000000000000000000000000000070000
+          000F00000010000000076561530F52587285295ECAE84BA4FDFF63C7FFFF52AD
+          FFFF2C74F8EE0E3ED07100014D09001780000000000000000000000000001A1B
+          1C000D0D0E0C292A2D443B3C3D7E4242439B35363794191A1C742323235A8A89
+          8ADD86A1BBFF5EB6EAFF50ABFEFF2B72F8EC0D3DCE6E00004408011379000000
+          00000000000000000000525355003637391A5B5B5B8C827A6FDCA59378EAB59D
+          7AE8AF9A7BE88C8170E4575654DA919292F7D5D6D4FF84A5C2FF2A66D7ED0B39
+          C66B0000340700146F000000000000000000000000005353540048494C0F706F
+          6D9BA5957BEDD0AF79E4C6AD6DE4B6A666E8BEAB70E9D7B682E8BEA784F08D8A
+          85FD9C9C9DFA939496EC4853798C0000200A0006380000000000000000000000
+          000000000000908E8C0073737460A1957FE9D4B47DE0D8B57DDD6C9E48EF2DA7
+          3CFD38912FF8C4AC73E6E2BF8AE7BEA885F1595857DC393938656A665F17D5D9
+          DC00030200000000000000000000000000000000000063676D0E8B8881B3C5AF
+          84E7C8B67DDEBBAD75DF65A751F245D872FF2FA238FBA79B5AE5C4AE77E6D7B9
+          86E98A8071E61516186700000003000000000000000000000000000000000000
+          0000000000007C7F84299C9587D2D2BC8DDF67AB52EF37AF42FA36B84AFD49DE
+          78FF2AB846FE2EA237FB399331F8BFB079EAAD9A7FED303132860000000B0000
+          00000000000000000000000000000000000000000000888A8F31A19A8BD8D6C4
+          99DD69BD64F455E57FFF56E783FF50E682FF49DE78FF44D872FF2FA83EFCB9AD
+          73E8B39F81EC3D3E3F880000000A000000000000000000000000000000000000
+          00000000000092949921A19C91CAD5C8A6E195C886EF7CC97DF85CC567FC56E7
+          83FF36B84BFD64A853F16CA14CEEC9B57CE5A3947DEC3435376E000000030000
+          00000000000000000000000000000000000000000000B8BAC305A09F9C9BC4BD
+          A4E9ECE7D3E6F3F0E8EF7FCB82F855E57FFF39B045F9BDB17DDED9BC88DCD1B5
+          85E6807A70D82122253879797900000000000000000000000000000000000000
+          000000000000A7A7A700ACACAE3CAAA89FDBD6D2BCE7EDEADAE696CB8CEF67BF
+          66F567AD56EECABC87DCD4BA88DFA39680EC58585882000000080B0B0B000000
+          00000000000000000000000000000000000000000000C0C0C100F0F0F402ABAB
+          AC62AAA9A1DEC5C0ACE8D6CFB2DFD7CCA5DBD4C398DCC6B48EE4A09683E96E6D
+          6C982E2F31175858590000000000000000000000000000000000000000000000
+          00000000000000000000BEBFC000CBCCCE03AAABAC439F9F9CA7A09D94D3A19D
+          8FDF9B968AD98A8883BB7273746747484B107172750000000000000000000000
+          000000000000000000000000000000000000000000000000000000000000CED0
+          D8008A898B00A9AAAE0A95969A2B8D8E923C808286336C6E7214080B10012F31
+          3700000000000000000000000000000000000000000000000000000000000000
+          000000000000}
+        OnClick = SpeedButton1Click
+      end
+      object Label9: TLabel
+        Left = 27
+        Top = 19
+        Width = 136
+        Height = 18
+        Caption = 'Data de Recebimento:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Open Sans Semibold'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object Bevel3: TBevel
+        Left = 24
+        Top = 8
+        Width = 761
+        Height = 9
+        Shape = bsTopLine
+      end
+      object Label11: TLabel
+        Left = 50
+        Top = 80
+        Width = 47
+        Height = 18
+        Caption = 'Cliente:'
+      end
+      object lblNome: TLabel
+        Left = 98
+        Top = 80
+        Width = 156
+        Height = 18
+        Caption = '??????????????????????????'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clNavy
+        Font.Height = -13
+        Font.Name = 'Open Sans Semibold'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object SpeedButton2: TSpeedButton
+        Left = 25
+        Top = 77
+        Width = 21
+        Height = 20
+        Glyph.Data = {
+          8A050000424D8A05000000000000360400002800000012000000110000000100
+          0800000000005401000000000000000000000001000000000000000000000000
+          80000080000000808000800000008000800080800000C0C0C000C0DCC000F0CA
+          A6000020400000206000002080000020A0000020C0000020E000004000000040
+          20000040400000406000004080000040A0000040C0000040E000006000000060
+          20000060400000606000006080000060A0000060C0000060E000008000000080
+          20000080400000806000008080000080A0000080C0000080E00000A0000000A0
+          200000A0400000A0600000A0800000A0A00000A0C00000A0E00000C0000000C0
+          200000C0400000C0600000C0800000C0A00000C0C00000C0E00000E0000000E0
+          200000E0400000E0600000E0800000E0A00000E0C00000E0E000400000004000
+          20004000400040006000400080004000A0004000C0004000E000402000004020
+          20004020400040206000402080004020A0004020C0004020E000404000004040
+          20004040400040406000404080004040A0004040C0004040E000406000004060
+          20004060400040606000406080004060A0004060C0004060E000408000004080
+          20004080400040806000408080004080A0004080C0004080E00040A0000040A0
+          200040A0400040A0600040A0800040A0A00040A0C00040A0E00040C0000040C0
+          200040C0400040C0600040C0800040C0A00040C0C00040C0E00040E0000040E0
+          200040E0400040E0600040E0800040E0A00040E0C00040E0E000800000008000
+          20008000400080006000800080008000A0008000C0008000E000802000008020
+          20008020400080206000802080008020A0008020C0008020E000804000008040
+          20008040400080406000804080008040A0008040C0008040E000806000008060
+          20008060400080606000806080008060A0008060C0008060E000808000008080
+          20008080400080806000808080008080A0008080C0008080E00080A0000080A0
+          200080A0400080A0600080A0800080A0A00080A0C00080A0E00080C0000080C0
+          200080C0400080C0600080C0800080C0A00080C0C00080C0E00080E0000080E0
+          200080E0400080E0600080E0800080E0A00080E0C00080E0E000C0000000C000
+          2000C0004000C0006000C0008000C000A000C000C000C000E000C0200000C020
+          2000C0204000C0206000C0208000C020A000C020C000C020E000C0400000C040
+          2000C0404000C0406000C0408000C040A000C040C000C040E000C0600000C060
+          2000C0604000C0606000C0608000C060A000C060C000C060E000C0800000C080
+          2000C0804000C0806000C0808000C080A000C080C000C080E000C0A00000C0A0
+          2000C0A04000C0A06000C0A08000C0A0A000C0A0C000C0A0E000C0C00000C0C0
+          2000C0C04000C0C06000C0C08000C0C0A000F0FBFF00A4A0A000808080000000
+          FF0000FF000000FFFF00FF000000FF00FF00FFFF0000FFFFFF00FFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFF0000FF075B5B5B5B5B5B5B5B5B5B5B5B5B9B07FF
+          0000FFA4070707EAF6EAF6EAF6EAF6070707A4FF0000FFA4F7F7F7EC07EC07EC
+          07EC07F7F7F7A4FF0000FFA4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4FF0000FFA4
+          0707EDA407EDEDEDEDF7F7F7F7ED9BFF0000FFA4F60807A4F6F6F6F6F6F6F608
+          08089BFF0000FFA40707079B070707070707070707079BFF0000FFA407070700
+          08F7A408F7A408F7A408A4FF0000FFA40808085208F6080808F6F6F6F608A4FF
+          0000FFA4F6F6F65BF6F7A4F6F7A4F6F7A4F6A4FF0000FFF7F6F6F6A4FFFFFFFF
+          FFFFFFFFFFFFA4FF0000FFF7F6F6F6F7FFE0EAEAEAEAEAEAE9FFA4FF0000FF07
+          F6F6F6F7FFD8EAEAEAEAEAEAE1FFA4FF0000FF07F6F6F6F7FFF4090909090909
+          F4FFF7FF0000FF0807F7F707F70707070707070707F707FF0000FFFFFFFFFFFF
+          FFFFFFFFFFFFFFFFFFFFFFFF0000}
+        OnClick = SpeedButton2Click
+      end
+      object editDocumento: TLabeledEdit
+        Left = 208
+        Top = 41
+        Width = 185
+        Height = 24
+        Ctl3D = False
+        EditLabel.Width = 76
+        EditLabel.Height = 18
+        EditLabel.Caption = 'Documento:'
+        EditLabel.Font.Charset = ANSI_CHARSET
+        EditLabel.Font.Color = clWindowText
+        EditLabel.Font.Height = -13
+        EditLabel.Font.Name = 'Open Sans Semibold'
+        EditLabel.Font.Style = [fsBold]
+        EditLabel.ParentFont = False
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Open Sans Semibold'
+        Font.Style = [fsBold]
+        ParentCtl3D = False
+        ParentFont = False
+        TabOrder = 1
+        OnEnter = editDocumentoEnter
+        OnExit = editDocumentoExit
+      end
+      object cbTipoPag: TComboBox
+        Left = 568
+        Top = 72
+        Width = 222
+        Height = 26
+        CharCase = ecUpperCase
+        Ctl3D = False
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Open Sans'
+        Font.Style = [fsBold]
+        ItemHeight = 18
+        ParentCtl3D = False
+        ParentFont = False
+        TabOrder = 3
+        OnEnter = cbTipoPagEnter
+        OnExit = cbTipoPagExit
+        Items.Strings = (
+          'DINHEIRO'
+          'CHEQUE'
+          'CART'#195'O DE CREDITO'
+          'TED'
+          'CR'#201'DITO'
+          'DEBITO')
+      end
+      object editContaCorrente: TEdit
+        Left = 545
+        Top = 41
+        Width = 216
+        Height = 24
+        Ctl3D = False
+        ParentCtl3D = False
+        TabOrder = 2
+        OnEnter = editContaCorrenteEnter
+        OnExit = editContaCorrenteExit
+      end
+      object GroupBox1: TGroupBox
+        Left = 24
+        Top = 104
+        Width = 769
+        Height = 209
+        Ctl3D = True
+        ParentCtl3D = False
+        TabOrder = 4
+        object Label3: TLabel
+          Left = 32
+          Top = 21
+          Width = 97
+          Height = 18
+          Caption = 'Saldo Devedor:'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clRed
+          Font.Height = -13
+          Font.Name = 'Open Sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Label4: TLabel
+          Left = 42
+          Top = 51
+          Width = 84
+          Height = 18
+          Caption = 'Multa / Juros:'
+        end
+        object Label5: TLabel
+          Left = 66
+          Top = 80
+          Width = 60
+          Height = 18
+          Caption = 'Varia'#231#227'o:'
+        end
+        object Label6: TLabel
+          Left = 63
+          Top = 108
+          Width = 62
+          Height = 18
+          Caption = 'Desconto:'
+        end
+        object Label7: TLabel
+          Left = 26
+          Top = 141
+          Width = 106
+          Height = 18
+          Caption = 'Valor a Receber:'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clGreen
+          Font.Height = -13
+          Font.Name = 'Open Sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object Bevel2: TBevel
+          Left = 21
+          Top = 168
+          Width = 722
+          Height = 9
+          Shape = bsTopLine
+        end
+        object Label8: TLabel
+          Left = 34
+          Top = 180
+          Width = 96
+          Height = 18
+          Caption = 'RECEBIMENTO:'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clTeal
+          Font.Height = -13
+          Font.Name = 'Open Sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object lblAtraso: TLabel
+          Left = 592
+          Top = 128
+          Width = 148
+          Height = 37
+          Caption = 'EM ATRASO'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clRed
+          Font.Height = -27
+          Font.Name = 'Open Sans'
+          Font.Style = []
+          ParentFont = False
+          Visible = False
+        end
+        object editSaldo: TEdit
+          Left = 136
+          Top = 16
+          Width = 131
+          Height = 24
+          Color = 11468799
+          Ctl3D = False
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Trebuchet MS'
+          Font.Style = [fsBold]
+          ParentCtl3D = False
+          ParentFont = False
+          ReadOnly = True
+          TabOrder = 0
+        end
+        object editJuros: TEdit
+          Left = 136
+          Top = 50
+          Width = 121
+          Height = 24
+          Ctl3D = False
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlue
+          Font.Height = -13
+          Font.Name = 'Trebuchet MS'
+          Font.Style = [fsBold]
+          ParentCtl3D = False
+          ParentFont = False
+          TabOrder = 2
+          Text = '0,00'
+          OnClick = editJurosClick
+          OnEnter = editJurosEnter
+          OnExit = editJurosExit
+          OnKeyPress = editJurosKeyPress
+        end
+        object editVariacao: TEdit
+          Left = 136
+          Top = 77
+          Width = 121
+          Height = 24
+          Ctl3D = False
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlue
+          Font.Height = -13
+          Font.Name = 'Trebuchet MS'
+          Font.Style = [fsBold]
+          ParentCtl3D = False
+          ParentFont = False
+          TabOrder = 3
+          Text = '0,00'
+          OnClick = editVariacaoClick
+          OnEnter = editVariacaoEnter
+          OnExit = editVariacaoExit
+          OnKeyPress = editVariacaoKeyPress
+        end
+        object EditDesconto: TEdit
+          Left = 136
+          Top = 105
+          Width = 121
+          Height = 24
+          Ctl3D = False
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlue
+          Font.Height = -13
+          Font.Name = 'Trebuchet MS'
+          Font.Style = [fsBold]
+          ParentCtl3D = False
+          ParentFont = False
+          TabOrder = 4
+          Text = '0,00'
+          OnClick = EditDescontoClick
+          OnEnter = EditDescontoEnter
+          OnExit = EditDescontoExit
+          OnKeyPress = EditDescontoKeyPress
+        end
+        object editRecebimento: TEdit
+          Left = 136
+          Top = 176
+          Width = 137
+          Height = 26
+          Ctl3D = False
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -15
+          Font.Name = 'Trebuchet MS'
+          Font.Style = [fsBold]
+          ParentCtl3D = False
+          ParentFont = False
+          TabOrder = 5
+          Text = '0,00'
+          OnClick = editRecebimentoClick
+          OnEnter = editRecebimentoEnter
+          OnExit = editRecebimentoExit
+          OnKeyPress = editRecebimentoKeyPress
+        end
+        object EditValor: TEdit
+          Left = 136
+          Top = 140
+          Width = 130
+          Height = 24
+          Color = 11468799
+          Ctl3D = False
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clBlack
+          Font.Height = -13
+          Font.Name = 'Trebuchet MS'
+          Font.Style = [fsBold]
+          ParentCtl3D = False
+          ParentFont = False
+          ReadOnly = True
+          TabOrder = 1
+        end
+      end
+      object GroupBox2: TGroupBox
+        Left = 24
+        Top = 320
+        Width = 769
+        Height = 90
+        Caption = 'Observa'#231#227'o:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Open Sans'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 5
+        object Memo1: TMemo
+          Left = 2
+          Top = 19
+          Width = 765
+          Height = 69
+          Align = alClient
+          BorderStyle = bsNone
+          Color = clSkyBlue
+          TabOrder = 0
+          OnEnter = Memo1Enter
+          OnExit = Memo1Exit
+        end
+      end
+      object cbData: TDateTimePicker
+        Left = 26
+        Top = 41
+        Width = 161
+        Height = 26
+        Cursor = crArrow
+        Date = 44054.039935150460000000
+        Time = 44054.039935150460000000
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clNavy
+        Font.Height = -13
+        Font.Name = 'Open Sans'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 0
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Lan'#231'amento'
+      ImageIndex = 1
+      object GroupBox3: TGroupBox
+        Left = 360
+        Top = 216
+        Width = 329
+        Height = 65
+        TabOrder = 1
+        object Label10: TLabel
+          Left = 16
+          Top = 20
+          Width = 145
+          Height = 26
+          Caption = 'Total Recebido:'
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -19
+          Font.Name = 'Open Sans'
+          Font.Style = [fsBold]
+          ParentFont = False
+        end
+        object editTotalBaixa: TMaskEdit
+          Left = 168
+          Top = 17
+          Width = 153
+          Height = 24
+          Ctl3D = False
+          Font.Charset = ANSI_CHARSET
+          Font.Color = clWindowText
+          Font.Height = -19
+          Font.Name = 'Open Sans'
+          Font.Style = []
+          ParentCtl3D = False
+          ParentFont = False
+          ReadOnly = True
+          TabOrder = 0
+          Text = 'R$ 00,00'
+        end
+      end
+      object DBGrid1: TDBGrid
+        Left = 8
+        Top = 16
+        Width = 801
+        Height = 209
+        Align = alCustom
+        DataSource = ds_Baixa
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clNavy
+        Font.Height = -13
+        Font.Name = 'Calibri'
+        Font.Style = []
+        Options = [dgTitles, dgColumnResize, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit]
+        ParentFont = False
+        TabOrder = 0
+        TitleFont.Charset = ANSI_CHARSET
+        TitleFont.Color = clTeal
+        TitleFont.Height = -13
+        TitleFont.Name = 'Open Sans Semibold'
+        TitleFont.Style = [fsBold]
+        OnCellClick = DBGrid1CellClick
+        Columns = <
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = 'Data_Baixa'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Calibri'
+            Font.Style = [fsBold]
+            Title.Alignment = taCenter
+            Title.Caption = 'Recebido em'
+            Width = 95
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Cod_Baixa'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Calibri'
+            Font.Style = []
+            Title.Alignment = taCenter
+            Title.Caption = 'C'#243'digo'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'Doc_Baixa'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Calibri'
+            Font.Style = []
+            Title.Alignment = taCenter
+            Title.Caption = 'Documento'
+            Width = 117
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Recebimento_Baixa'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clNavy
+            Font.Height = -13
+            Font.Name = 'Calibri'
+            Font.Style = [fsBold]
+            Title.Alignment = taCenter
+            Title.Caption = 'Recebido'
+            Width = 109
+            Visible = True
+          end
+          item
+            Alignment = taCenter
+            Expanded = False
+            FieldName = 'Tipo_PagBaixa'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Calibri'
+            Font.Style = []
+            Title.Alignment = taCenter
+            Title.Caption = 'Form Pag'
+            Width = 75
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Juros_Baixa'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Calibri'
+            Font.Style = []
+            Title.Alignment = taCenter
+            Title.Caption = 'Juros'
+            Width = 96
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Variacao_Baixa'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Calibri'
+            Font.Style = []
+            Title.Alignment = taCenter
+            Title.Caption = 'Varia'#231#227'o'
+            Width = 93
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Desconto_Baixa'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Calibri'
+            Font.Style = []
+            Title.Alignment = taCenter
+            Title.Caption = 'Desconto'
+            Width = 89
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Conta_CorrenteBaixa'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Calibri'
+            Font.Style = []
+            Title.Alignment = taCenter
+            Title.Caption = 'Banco/CC'
+            Width = 203
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'Valor_Baixa'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Calibri'
+            Font.Style = []
+            Title.Alignment = taCenter
+            Title.Caption = 'Valor a Pagar'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'Obs_Baixa'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Calibri'
+            Font.Style = []
+            Title.Alignment = taCenter
+            Title.Caption = 'Observa'#231#227'o'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'Saldo_Baixo'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Calibri'
+            Font.Style = []
+            Title.Alignment = taCenter
+            Title.Caption = 'Saldo'
+            Visible = False
+          end
+          item
+            Expanded = False
+            FieldName = 'Id_ContasReceber'
+            Font.Charset = ANSI_CHARSET
+            Font.Color = clBlack
+            Font.Height = -13
+            Font.Name = 'Calibri'
+            Font.Style = []
+            Title.Alignment = taCenter
+            Title.Caption = 'Id da Conta'
+            Visible = False
+          end>
+      end
+      object BitBtn1: TBitBtn
+        Left = 8
+        Top = 232
+        Width = 177
+        Height = 34
+        Caption = 'Impress'#227'o do Recibo'
+        TabOrder = 2
+        Glyph.Data = {
+          82060000424D8206000000000000420000002800000014000000140000000100
+          20000300000040060000983A0000983A000000000000000000000000FF0000FF
+          0000FF0000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000012121200080808091818182B09090932000000160000
+          0003000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000B0B0B0000000006363636306868
+          68887D7D7DCE686868CB414141991919195B000000270000000A000000010000
+          0000000000000000000000000000000000000000000000000000000000000000
+          00042E2E2E286868687D8C8C8CD49A9A9AFC929292FF8B8B8BFF7D7D7DFB6C6C
+          6CE4515151B62B2B2B790909093F000000160000000300000000000000000000
+          000000000000606060003A3A3A1B68686871909090CDA2A2A2FA9E9E9EFFA0A0
+          A0FFADADADFF979797FF717171FF4C4C4CFF5F5F5FFF686868F35A5A5AD13C3C
+          3C9A1818185B010101280000000A00000001000000006D6D6D0B9696969CA9A9
+          A9F9AAAAAAFFADADADFFC1C1C1FFD2D2D2FFCBCBCBFFB0B0B0FF9D9D9DFF5A5A
+          5AFF393939FF3A3A3AFF4C4C4CFF5C5C5CFB5B5B5BE4474747B7242424780404
+          0421131313007A7A7A33A3A3A3DBBBBBBBFFCECECEFFDBDBDBFFDCDCDCFFD8D8
+          D8FFCBCBCBFFB3B3B3FFB2B2B2FFA9A9AAFF8D8F91FF6A6B6DFF494A4BFF3838
+          38FF3C3C3CFF4E4E4EFF555555E71515156000000008A2A2A27BD2D2D2FAE4E4
+          E4FFE4E4E4FFE1E1E1FFDEDEDEFFDBDBDBFFCBCBCBFFB8B8B8FFB7B8B8FFBAB1
+          A7FFC2A583FFBEA284FFAB9D8EFF8D8C8BFF676868FF565656FF7B7B7BFA4646
+          46A20000001FAEAEAE79E0E0E0FCE9E9E9FFE7E7E7FFE4E4E4FFE1E1E1FFDDDD
+          DDFFCBCBCBFFBEBEBEFFBEBCB9FFD1A46DFFE3A14EFFE09D48FFD99544FFC89B
+          68FFB7B3AEFFB1B0B0FFAFAFAFFF636363AF0000001CABABAB56DEDEDEF6EEEE
+          EEFFEAEAEAFFE7E7E7FFE4E4E4FFDEDEDEFFCACACAFFC4C5C7FFCAB69EFFE5AB
+          64FFE9AC5FFFE6A755FFE4A44FFFDB953FFFBDAD9AFFA5BBCEFFAEB2B5FF5858
+          57990000000EA6A6A62AD9D9D9DDF1F1F1FFEDEDEDFFEAEAEAFFE6E6E6FFDBDB
+          DBFFCDCDCDFFCBC8C5FFDCAF78FFEDB46EFFE9AC60FFE7A959FFE5A553FFDD9A
+          47FFA0A39FFF64B1EBFF9CA6AEF7474544690000000285858505CDCDCD98EEEE
+          EEFFF1F1F1FFECECECFFE6E6E6FFDADADAFFD5D6D6FFD9BE9AFFECB673FFEEB5
+          6FFFEAAE63FFE8AA5CFFE6A653FFD9A15DFFADB2B3FF94B0C2FF8D8E8FD02322
+          222B59595900BCBCBC00B9B9B92AD2D2D2BAE5E5E6F9E4E5E5FFE0E1E2FFDFDF
+          DEFFE2CCB0FFEDBB7DFFF2BC7CFFEEB46DFFEBB066FFE9AC5FFFE4A351FFD7B8
+          93FFD3D4D5FFB8B7B6F46969696E0000000411111100A7A7A700A4A5A500A4A4
+          A626BFBCB7C9E2DBD0FFDDCBB6FFE7C59CFFF3C28AFFF5C084FFF1B976FFEFB5
+          6FFFEDB269FFE8AA5CFFDEAD70FFD8D3CDFFC2C3C3F08D8D8D842424240F5050
+          50000000000000000000888989007F808219D2CDC3D1FFF3E2FFFCE5C8FFF9D5
+          A8FFF7CD99FFF3C388FFF0BC7AFFE7B16BFDDFA357E1D99B4CAEB8A79196B0B2
+          B38D90909049464646096A6A6A00000000000000000000000000A0A09F009798
+          973DE2DDD4F0FFF7E9FFFFF4E4FFFFF2DEFFFEEED5FFFEE9CCFFFEE7C4FFC6B5
+          9AEA604D3355BB76170900000000000000000000000000000000000000000000
+          0000000000004B4B4B00EDEAE700B0AFAE6DF1EDE6FEFFF9EEFFFFF6E7FFFFF3
+          E1FFFFF1DBFFFFEFD5FFFCEACDFFA39C8FC703060C231E1F2100000000000000
+          00000000000000000000000000000000000000000000939393001F212402B2B1
+          B189DEDCD8EDE7E2DBEFEAE3D9F5EDE4D6FBEEE3D1FFF0E3CDFFE6D8C1FF7D79
+          73950000000B0909090000000000000000000000000000000000000000000000
+          000000000000A6A6A600A8A9A901A2A2A11DA3A2A234A5A4A33EA7A6A447A7A6
+          A351A7A6A15DADA9A26BA9A49C75737270310000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          0000000000000000000000000000000000000000000000000000000000000000
+          000000000000}
+      end
+      object GroupBox4: TGroupBox
+        Left = 8
+        Top = 320
+        Width = 801
+        Height = 90
+        Caption = 'Observa'#231#227'o do Recebimento:'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Open Sans'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 3
+        object Memo2: TMemo
+          Left = 2
+          Top = 19
+          Width = 797
+          Height = 69
+          Align = alClient
+          BorderStyle = bsNone
+          Color = clSkyBlue
+          TabOrder = 0
+          OnEnter = Memo1Enter
+          OnExit = Memo1Exit
+        end
+      end
+    end
+  end
+  object tbl_Baixa: TTable
+    Active = True
+    DatabaseName = 'HortiFrut'
+    TableName = 'tbl_Baixa.DB'
+    Left = 496
+    Top = 16
+    object tbl_BaixaCod_Baixa: TIntegerField
+      FieldName = 'Cod_Baixa'
+    end
+    object tbl_BaixaDoc_Baixa: TStringField
+      FieldName = 'Doc_Baixa'
+      Size = 17
+    end
+    object tbl_BaixaTipo_PagBaixa: TStringField
+      FieldName = 'Tipo_PagBaixa'
+      Size = 15
+    end
+    object tbl_BaixaConta_CorrenteBaixa: TStringField
+      FieldName = 'Conta_CorrenteBaixa'
+      Size = 60
+    end
+    object tbl_BaixaJuros_Baixa: TCurrencyField
+      FieldName = 'Juros_Baixa'
+    end
+    object tbl_BaixaVariacao_Baixa: TCurrencyField
+      FieldName = 'Variacao_Baixa'
+    end
+    object tbl_BaixaDesconto_Baixa: TCurrencyField
+      FieldName = 'Desconto_Baixa'
+    end
+    object tbl_BaixaValor_Baixa: TCurrencyField
+      FieldName = 'Valor_Baixa'
+    end
+    object tbl_BaixaRecebimento_Baixa: TCurrencyField
+      FieldName = 'Recebimento_Baixa'
+    end
+    object tbl_BaixaObs_Baixa: TStringField
+      FieldName = 'Obs_Baixa'
+      Size = 100
+    end
+    object tbl_BaixaSaldo_Baixo: TCurrencyField
+      FieldName = 'Saldo_Baixo'
+    end
+    object tbl_BaixaId_ContasReceber: TIntegerField
+      FieldName = 'Id_ContasReceber'
+    end
+    object tbl_BaixaData_Baixa: TDateField
+      FieldName = 'Data_Baixa'
+    end
+  end
+  object tbl_ContasReceber: TTable
+    Active = True
+    DatabaseName = 'HortiFrut'
+    TableName = 'tbl_ContasReceber.DB'
+    Left = 464
+    Top = 16
+    object tbl_ContasReceberCod_ContasReceber: TIntegerField
+      FieldName = 'Cod_ContasReceber'
+    end
+    object tbl_ContasReceberCliente_ContasReceber: TStringField
+      FieldName = 'Cliente_ContasReceber'
+      Size = 30
+    end
+    object tbl_ContasReceberNum_DocContasReceber: TStringField
+      FieldName = 'Num_DocContasReceber'
+    end
+    object tbl_ContasReceberQtd_ParcContasReceber: TIntegerField
+      FieldName = 'Qtd_ParcContasReceber'
+    end
+    object tbl_ContasReceberValor_ContasReceber: TCurrencyField
+      FieldName = 'Valor_ContasReceber'
+    end
+    object tbl_ContasReceberData_ContasReceber: TDateField
+      FieldName = 'Data_ContasReceber'
+    end
+    object tbl_ContasReceberData_VencContasReceber: TDateField
+      FieldName = 'Data_VencContasReceber'
+    end
+    object tbl_ContasReceberTipo_ReceitaContasReceber: TStringField
+      FieldName = 'Tipo_ReceitaContasReceber'
+      Size = 30
+    end
+    object tbl_ContasReceberQuitado_ContasReceber: TDateField
+      FieldName = 'Quitado_ContasReceber'
+    end
+    object tbl_ContasReceberFalta_ContasReceber: TCurrencyField
+      FieldName = 'Falta_ContasReceber'
+    end
+    object tbl_ContasReceberRecebido_ContasReceber: TCurrencyField
+      FieldName = 'Recebido_ContasReceber'
+    end
+    object tbl_ContasReceberObs_ContasReceber: TStringField
+      FieldName = 'Obs_ContasReceber'
+      Size = 60
+    end
+  end
+  object ds_Baixa: TDataSource
+    DataSet = tbl_Baixa
+    Left = 424
+    Top = 16
+  end
+  object tbl_Filtro: TTable
+    DatabaseName = 'HortiFrut'
+    TableName = 'tbl_Baixa.DB'
+    Left = 528
+    Top = 16
+    object tbl_FiltroCod_Baixa: TIntegerField
+      FieldName = 'Cod_Baixa'
+    end
+    object tbl_FiltroDoc_Baixa: TStringField
+      FieldName = 'Doc_Baixa'
+      Size = 17
+    end
+    object tbl_FiltroTipo_PagBaixa: TStringField
+      FieldName = 'Tipo_PagBaixa'
+      Size = 15
+    end
+    object tbl_FiltroConta_CorrenteBaixa: TStringField
+      FieldName = 'Conta_CorrenteBaixa'
+      Size = 60
+    end
+    object tbl_FiltroJuros_Baixa: TCurrencyField
+      FieldName = 'Juros_Baixa'
+    end
+    object tbl_FiltroVariacao_Baixa: TCurrencyField
+      FieldName = 'Variacao_Baixa'
+    end
+    object tbl_FiltroDesconto_Baixa: TCurrencyField
+      FieldName = 'Desconto_Baixa'
+    end
+    object tbl_FiltroValor_Baixa: TCurrencyField
+      FieldName = 'Valor_Baixa'
+    end
+    object tbl_FiltroRecebimento_Baixa: TCurrencyField
+      FieldName = 'Recebimento_Baixa'
+    end
+    object tbl_FiltroObs_Baixa: TStringField
+      FieldName = 'Obs_Baixa'
+      Size = 100
+    end
+    object tbl_FiltroSaldo_Baixo: TCurrencyField
+      FieldName = 'Saldo_Baixo'
+    end
+    object tbl_FiltroId_ContasReceber: TIntegerField
+      FieldName = 'Id_ContasReceber'
+    end
+    object tbl_FiltroData_Baixa: TDateField
+      FieldName = 'Data_Baixa'
+    end
+  end
+  object ds_Filtro: TDataSource
+    DataSet = tbl_Filtro
+    Left = 392
+    Top = 16
+  end
+  object tbl_Cliente: TTable
+    DatabaseName = 'HortiFrut'
+    TableName = 'tbl_Cliente.DB'
+    Left = 568
+    Top = 16
+  end
+  object tbl_Movimentacao: TTable
+    DatabaseName = 'HortiFrut'
+    TableName = 'tbl_Movimentacao.db'
+    Left = 632
+    Top = 16
+    object tbl_MovimentacaoCod_Movimentacao: TAutoIncField
+      FieldName = 'Cod_Movimentacao'
+      ReadOnly = True
+    end
+    object tbl_MovimentacaoId_Movimentacao: TIntegerField
+      FieldName = 'Id_Movimentacao'
+    end
+    object tbl_MovimentacaoData_Movimentacao: TDateField
+      FieldName = 'Data_Movimentacao'
+    end
+    object tbl_MovimentacaoHistorico_Movimentacao: TStringField
+      FieldName = 'Historico_Movimentacao'
+      Size = 60
+    end
+    object tbl_MovimentacaoDebito_Movimentacao: TCurrencyField
+      FieldName = 'Debito_Movimentacao'
+    end
+    object tbl_MovimentacaoCredito_Movimentacao: TCurrencyField
+      FieldName = 'Credito_Movimentacao'
+    end
+    object tbl_MovimentacaoConciliado_Movimentacao: TStringField
+      FieldName = 'Conciliado_Movimentacao'
+      Size = 3
+    end
+    object tbl_MovimentacaoData_FinalMovimentacao: TDateField
+      FieldName = 'Data_FinalMovimentacao'
+    end
+    object tbl_MovimentacaoExtrato_Movimentacao: TGraphicField
+      FieldName = 'Extrato_Movimentacao'
+      BlobType = ftGraphic
+    end
+    object tbl_MovimentacaoDocumento_Movimentacao: TStringField
+      FieldName = 'Documento_Movimentacao'
+      Size = 60
+    end
+    object tbl_MovimentacaoPlanoConta_Movimentacao: TStringField
+      FieldName = 'PlanoConta_Movimentacao'
+      Size = 60
+    end
+    object tbl_MovimentacaoFoto_Movimentacao: TStringField
+      FieldName = 'Foto_Movimentacao'
+      Size = 225
+    end
+    object tbl_MovimentacaoId_PlanoContas: TIntegerField
+      FieldName = 'Id_PlanoContas'
+    end
+  end
+  object tbl_PlanoConta: TTable
+    DatabaseName = 'HortiFrut'
+    TableName = 'tbl_PlanoContas.db'
+    Left = 664
+    Top = 16
+    object tbl_PlanoContaCod_PlanoContas: TIntegerField
+      FieldName = 'Cod_PlanoContas'
+    end
+    object tbl_PlanoContaDescricao_PlanoContas: TStringField
+      FieldName = 'Descricao_PlanoContas'
+      Size = 60
+    end
+    object tbl_PlanoContaSequencia_PlanoContas: TStringField
+      FieldName = 'Sequencia_PlanoContas'
+      Size = 16
+    end
+    object tbl_PlanoContaTipo_PlanoContas: TStringField
+      FieldName = 'Tipo_PlanoContas'
+      Size = 16
+    end
+    object tbl_PlanoContaCategoria_PlanoContas: TStringField
+      FieldName = 'Categoria_PlanoContas'
+      Size = 1
+    end
+    object tbl_PlanoContaAtivo_PlanoContas: TStringField
+      FieldName = 'Ativo_PlanoContas'
+      Size = 1
+    end
+    object tbl_PlanoContaValorTotal_PlanoContas: TCurrencyField
+      FieldName = 'ValorTotal_PlanoContas'
+    end
+  end
+  object tbl_Planos: TTable
+    DatabaseName = 'HortiFrut'
+    TableName = 'tbl_Planos.db'
+    Left = 696
+    Top = 16
+    object tbl_PlanosCod_Planos: TAutoIncField
+      FieldName = 'Cod_Planos'
+      ReadOnly = True
+    end
+    object tbl_PlanosDescricao_Planos: TStringField
+      FieldName = 'Descricao_Planos'
+      Size = 100
+    end
+    object tbl_PlanosDoc_Planos: TStringField
+      FieldName = 'Doc_Planos'
+      Size = 60
+    end
+    object tbl_PlanosValor_Planos: TCurrencyField
+      FieldName = 'Valor_Planos'
+    end
+    object tbl_PlanosData_Planos: TDateField
+      FieldName = 'Data_Planos'
+    end
+    object tbl_PlanosDataVenc_Planos: TDateField
+      FieldName = 'DataVenc_Planos'
+    end
+    object tbl_PlanosTipo_Planos: TStringField
+      FieldName = 'Tipo_Planos'
+      Size = 1
+    end
+    object tbl_PlanosId_PlanoContas: TIntegerField
+      FieldName = 'Id_PlanoContas'
+    end
+    object tbl_PlanosId_Movimentacao: TIntegerField
+      FieldName = 'Id_Movimentacao'
+    end
+    object tbl_Planosid_ContaCorrente: TIntegerField
+      FieldName = 'id_ContaCorrente'
+    end
+  end
+  object tbl_ContaCorrente: TTable
+    DatabaseName = 'HortiFrut'
+    TableName = 'tbl_ContaCorrente.db'
+    Left = 600
+    Top = 16
+    object tbl_ContaCorrenteCod_ContaCorrente: TAutoIncField
+      FieldName = 'Cod_ContaCorrente'
+      ReadOnly = True
+    end
+    object tbl_ContaCorrenteDescricao_ContaCorrente: TStringField
+      FieldName = 'Descricao_ContaCorrente'
+      Size = 60
+    end
+    object tbl_ContaCorrenteAgencia_ContaCorrente: TStringField
+      FieldName = 'Agencia_ContaCorrente'
+      Size = 60
+    end
+    object tbl_ContaCorrenteBanco_ContaCorrente: TStringField
+      FieldName = 'Banco_ContaCorrente'
+      Size = 60
+    end
+    object tbl_ContaCorrenteAtivo_ContaCorrente: TStringField
+      FieldName = 'Ativo_ContaCorrente'
+      Size = 1
+    end
+    object tbl_ContaCorrenteId_Conta: TIntegerField
+      FieldName = 'Id_Conta'
+    end
+    object tbl_ContaCorrenteConta_ContaCorrente: TStringField
+      FieldName = 'Conta_ContaCorrente'
+      Size = 30
+    end
+    object tbl_ContaCorrenteSaldo_ContaCorrente: TCurrencyField
+      FieldName = 'Saldo_ContaCorrente'
+    end
+  end
+end

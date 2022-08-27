@@ -1,0 +1,45 @@
+unit consultacomprasU;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, modeloconsulta, DB, DBCtrls, Grids, DBGrids, StdCtrls, Buttons,
+  ExtCtrls, DBTables;
+
+type
+  Tfrm_ConsultaCompras = class(TfrmModelo)
+    Table1: TTable;
+    Table1Cod_CompTotal: TIntegerField;
+    Table1Fornecedor_CompTotal: TStringField;
+    Table1Lote_CompTotal: TStringField;
+    Table1Data_CompTotal: TDateField;
+    Table1Total_CompTotal: TCurrencyField;
+    Table1FormPag_CompTotal: TStringField;
+    Table1Usuario_CompTotal: TStringField;
+    Table1DataVenc_CompTotal: TDateField;
+    Table1Prazo_CompTotal: TIntegerField;
+    Table1Frete_CompTotal: TCurrencyField;
+    Table1Situacao_CompTotal: TStringField;
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frm_ConsultaCompras: Tfrm_ConsultaCompras;
+
+implementation
+
+{$R *.dfm}
+
+procedure Tfrm_ConsultaCompras.FormCreate(Sender: TObject);
+begin
+  inherited;
+tablepadrao := tbl_Modelo;
+tablepadrao.Active := true;
+end;
+
+end.

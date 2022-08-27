@@ -1,0 +1,25 @@
+unit consultareceberU;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, modeloconsulta, DB, DBCtrls, Grids, DBGrids, StdCtrls, Buttons,
+  ExtCtrls;
+
+type
+  Tfrm_ConsultaReceber = class(TfrmModelo)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frm_ConsultaReceber: Tfrm_ConsultaReceber;
+
+implementation
+
+{$R *.dfm}
+
+end.

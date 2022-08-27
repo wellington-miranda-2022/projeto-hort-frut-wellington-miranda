@@ -1,0 +1,11 @@
+Usuário escolhe Fornecedor
+
+Usuário clica em importar pedido
+
+Usuário escolhe o pedido a ser importado ( se não ouver Fornecedor ele da um aviso e continua na tela de pedido )
+
+o pedido é carregado no dbgrid de detalhes
+
+Fornecedor é apagado da lista de Fornecedores
+
+O campo lote não é apagado
